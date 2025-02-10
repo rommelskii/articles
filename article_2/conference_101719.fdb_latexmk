@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1739147733.87524 "/home/strobe/article_2/conference_101719.tex" "conference_101719.pdf" "conference_101719" 1739147734.21199 0
-  "/home/strobe/article_2/conference_101719.tex" 1739147733.33592 22143 512bde07d4a705d5ff15e3a3895a796e ""
+["pdflatex"] 1739148232.28917 "/home/strobe/articles/article_2/conference_101719.tex" "conference_101719.pdf" "conference_101719" 1739148232.63098 0
+  "/home/strobe/articles/article_2/conference_101719.tex" 1739148232.07593 22272 dd5e929971156158c6013cb56388ef85 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc" 1736268207 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1736268207 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1736268207 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -81,10 +81,10 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1736268207 41588 b43d3e860a4f94167ee1e725ff526a72 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1739138527.76977 5318467 8236939515598d005dfbcc2e1a40f206 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1739138494 7113017 dcaf40cba2fb42ff8996aa9d7d5a80bb ""
-  "IEEEtran.cls" 1739139590.07373 288304 b67b6fc6c2abb39f9b461923f5199343 ""
-  "conference_101719.aux" 1739147734.16792 3578 bf844f5e59550f902fe5d47f4abee260 "pdflatex"
-  "conference_101719.tex" 1739147733.33592 22143 512bde07d4a705d5ff15e3a3895a796e ""
-  "fig1.png" 1739139590.07458 4535 3b4c70b1b9361fad686e8d234c8fe506 ""
+  "IEEEtran.cls" 1739147898.35235 288304 b67b6fc6c2abb39f9b461923f5199343 ""
+  "conference_101719.aux" 1739148232.58793 3578 bf844f5e59550f902fe5d47f4abee260 "pdflatex"
+  "conference_101719.tex" 1739148232.07593 22272 dd5e929971156158c6013cb56388ef85 ""
+  "fig1.png" 1739147898.35289 4535 3b4c70b1b9361fad686e8d234c8fe506 ""
   (generated)
   "conference_101719.aux"
   "conference_101719.log"

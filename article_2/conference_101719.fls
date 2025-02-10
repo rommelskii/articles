@@ -1,7 +1,7 @@
-PWD /home/strobe/article_2
+PWD /home/strobe/articles/article_2
 INPUT /usr/share/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /home/strobe/article_2/conference_101719.tex
+INPUT /home/strobe/articles/article_2/conference_101719.tex
 OUTPUT conference_101719.log
 INPUT ./IEEEtran.cls
 INPUT IEEEtran.cls
