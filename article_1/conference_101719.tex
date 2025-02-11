@@ -2,25 +2,49 @@
 \IEEEoverridecommandlockouts
 % The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
 \usepackage{cite}
+\usepackage{float}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
+\usepackage{colortbl}
+\usepackage{tabularray}
+\UseTblrLibrary{booktabs}
 \usepackage{xcolor}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
 \title{Automatic Question Generation from Handwritten Lecture Notes Using TrOCR Text Recognition 
-and T5 Language Processing\\
-\author{\IEEEauthorblockN{Rommel John Ronduen\textsuperscript{1}, Jan Adrian Manzanero\textsuperscript{2}, Analyn Yumang\textsuperscript{3}}
-\IEEEauthorblockA{\textit{School of Electrical, Electronics, and Computer Engineering} \\
-\textit{Mapua University}\\
+and T5 Language Processing}
+\author{
+\IEEEauthorblockN{\textsuperscript{1}Rommel John H. Ronduen}
+\IEEEauthorblockA{
+\textit{School of Electrical, Electronics, and} \\
+\textit{Computer Engineering} \\
+\textit{Map\'ua University}\\
 Manila, Philippines \\
-\textsuperscript{1}rjhronduen@mymail.mapua.edu.ph\\ 
-\textsuperscript{2}jacmanzanero@mymail.mapua.edu.ph\\ 
-\textsuperscript{3}anyumang@mapua.edu.ph}}
+rjhronduen@mymail.mapua.edu.ph}
+~\\
+\and
+\IEEEauthorblockN{\textsuperscript{2}Jan Adrian C. Manzanero}
+\IEEEauthorblockA{
+\textit{School of Electrical, Electronics, and} \\
+\textit{Computer Engineering} \\
+\textit{Map\'ua University}\\
+Manila, Philippines \\
+jacmanzanero@mymail.mapua.edu.ph}
+~\\
+\and
+\IEEEauthorblockN{\textsuperscript{3}Analyn N. Yumang}
+\IEEEauthorblockA{
+\textit{School of Electrical, Electronics, and} \\
+\textit{Computer Engineering} \\
+\textit{Map\'ua University}\\
+Manila, Philippines \\
+anyumang@mapua.edu.ph}
 }
+
 
 \maketitle
 
@@ -42,7 +66,7 @@ Automatic Question Generation, Handwritten Lecture Notes, Raspberry Pi
 \end{IEEEkeywords}
 
 \section{Introduction}
-Handwritten lecture notes can be considered as the standard way 
+\IEEEPARstart{H}{}andwritten lecture notes can be considered as the standard way 
 for capturing and facilitating learning. These lecture notes are 
 learning artifacts that may contain valuable information that can 
 be the basis for other learning elements. One of these learning elements 
@@ -56,234 +80,267 @@ It is achieved using large language models (LLMs) from various inputs
 that created questions for the assessment or learning enforcement of 
 students.
 \\
-\indent 
-
-
-
+\indent Despite feasibility in AQG systems, 
+these cannot process handwritten notes 
+due to the lack of integrated optical character recognition (OCR) 
+\cite{Arbaaeen2020}. AQG is derived from large language models (LLMs) 
+such as T5, BERT, and GPT-3, which have use cases from 
+treebanks \cite{Mesina2020} and classification of certain texts \cite{Padilla2020}.
+Existing AQG frameworks are categorized by 
+their information-processing methods, yet none address 
+handwritten sources \cite{Arbaaeen2020}. While \cite{Ou2022} demonstrated AQG 
+on videos using BERT for named entity recognition (NER) on 
+transcribed audio, textual or handwritten contexts remain 
+unexplored. Other approaches include manual text input 
+with part-of-speech (POS) tagging \cite{Moron2021}, rule-based methods 
+for programming code \cite{Gaur2023}, and the T5 model 
+fine-tuned on SQuAD for text-based AQG \cite{Tsai2021}. OCR, defined as 
+image-to-text conversion via convolutional neural networks (CNNs) \cite{Ligsay2022}, has been applied to handwritten Baybayin, medicinal mushroom classification \cite{Sutayco2024}, and expiry date extraction \cite{Manlises2024}. Through \cite{Calimag2023}, a use case combined CNNs with RNNs for real-time inference, evaluated via confusion matrices \cite{Ishikawa2020} \cite{Villaverde2023}. However, Transformer-based OCR (TrOCR) 
+\cite{Li2021}, pre-trained on the IAM Handwriting Database, offers superior paragraph-level text recognition over character-
+focused CNNs \cite{Mortadi2023}. TrOCR’s robustness positions it as a critical enabler for AQG from handwritten lecture notes, addressing the identified gap in media diversity \cite{Arbaaeen2020}. 
+\\
+\indent In bridging the gap for processing handwritten lecture notes for AQG, this research has the 
+general objective of performing AQG from handwritten lecture
+notes using TrOCR text recognition and T5 language processing.
+Specifically, this research aims to extract text from
+handwritten lecture notes using TrOCR and refine such text 
+using the Gemini 1.5 Pro large language model (LLM); utilize 
+a fine-tuned base version of T5 on SQuAD for AQG on 
+indexed keywords from spaCy and Rapid Automatic Keyword 
+Extraction (RAKE) on the refined text; utilize a Raspberry 
+Pi 5 within a constructed enclosure with illumination 
+for facilitating the system processes and experimental setup;
+and lastly, to evaluate the system using the word error 
+rate (WER) for the OCR, and the Recall-Oriented Understudy for 
+Gisting Evaluation (ROUGE) and the Bilingual Language Understanding 
+Evaluation (BLEU) for the quality of AQG.
+\\
+\indent This system only considers handwritten lecture notes 
+that are single-column, diagram and equation free, and written 
+in English on plain sheet letter-size paper. It is important to note that 
+this system utilizes the base versions of the T5 and TrOCR models where the 
+former uses SQuAD for the fine-tuning and Gemini 1.5 Pro for the 
+text correction and context completion of OCR-extracted text as well as 
+the spaCy-Rake keyword extraction for AQG basis. Also, the system operation is confined 
+within the processing capability of the 8-gigabyte model of the Raspberry Pi 5.
+Consequently, this system is not expected to behave normally under the usage
+multi-column handwritten notes on lined paper on varying sizes. 
+A different model for OCR or AQG may lead to differing results as well as 
+for the text-enhancing model. Lastly, the usage of alternative hardware 
+may lead to different results.
 \section{Materials and Methods}
-    \subsection{Hardware Development}
-        \subsubsection{System Block Diagram}
-        \subsubsection{Experimental Setup}
-    \subsection{Software Development}
-        \subsubsection{System Flowchart}
-        \subsubsection{Model Fine-tuning}
-    \subsection{Data Gathering}
-    \subsection{Testing and Evaluation}
-
-\section{Results and Discussion}
-\section{Conclusion and Recommendations}
-
-\subsection{Maintaining the Integrity of the Specifications}
-
-The IEEEtran class file is used to format your paper and style the text. All margins, 
-column widths, line spaces, and text fonts are prescribed; please do not 
-alter them. You may note peculiarities. For example, the head margin
-measures proportionately more than is customary. This measurement 
-and others are deliberate, using specifications that anticipate your paper 
-as one part of the entire proceedings, and not as an independent document. 
-Please do not revise any of the current designations.
-
-\section{Prepare Your Paper Before Styling}
-Before you begin to format your paper, first write and save the content as a 
-separate text file. Complete all content and organizational editing before 
-formatting. Please note sections \ref{AA}--\ref{SCM} below for more information on 
-proofreading, spelling and grammar.
-
-Keep your text and graphic files separate until after the text has been 
-formatted and styled. Do not number text heads---{\LaTeX} will do that 
-for you.
-
-\subsection{Abbreviations and Acronyms}\label{AA}
-Define abbreviations and acronyms the first time they are used in the text, 
-even after they have been defined in the abstract. Abbreviations such as 
-IEEE, SI, MKS, CGS, ac, dc, and rms do not have to be defined. Do not use 
-abbreviations in the title or heads unless they are unavoidable.
-
-\subsection{Units}
-\begin{itemize}
-\item Use either SI (MKS) or CGS as primary units. (SI units are encouraged.) English units may be used as secondary units (in parentheses). An exception would be the use of English units as identifiers in trade, such as ``3.5-inch disk drive''.
-\item Avoid combining SI and CGS units, such as current in amperes and magnetic field in oersteds. This often leads to confusion because equations do not balance dimensionally. If you must use mixed units, clearly state the units for each quantity that you use in an equation.
-\item Do not mix complete spellings and abbreviations of units: ``Wb/m\textsuperscript{2}'' or ``webers per square meter'', not ``webers/m\textsuperscript{2}''. Spell out units when they appear in text: ``. . . a few henries'', not ``. . . a few H''.
-\item Use a zero before decimal points: ``0.25'', not ``.25''. Use ``cm\textsuperscript{3}'', not ``cc''.)
-\end{itemize}
-
-\subsection{Equations}
-Number equations consecutively. To make your 
-equations more compact, you may use the solidus (~/~), the exp function, or 
-appropriate exponents. Italicize Roman symbols for quantities and variables, 
-but not Greek symbols. Use a long dash rather than a hyphen for a minus 
-sign. Punctuate equations with commas or periods when they are part of a 
-sentence, as in:
-\begin{equation}
-a+b=\gamma\label{eq}
-\end{equation}
-
-Be sure that the 
-symbols in your equation have been defined before or immediately following 
-the equation. Use ``\eqref{eq}'', not ``Eq.~\eqref{eq}'' or ``equation \eqref{eq}'', except at 
-the beginning of a sentence: ``Equation \eqref{eq} is . . .''
-
-\subsection{\LaTeX-Specific Advice}
-
-Please use ``soft'' (e.g., \verb|\eqref{Eq}|) cross references instead
-of ``hard'' references (e.g., \verb|(1)|). That will make it possible
-to combine sections, add equations, or change the order of figures or
-citations without having to go through the file line by line.
-
-Please don't use the \verb|{eqnarray}| equation environment. Use
-\verb|{align}| or \verb|{IEEEeqnarray}| instead. The \verb|{eqnarray}|
-environment leaves unsightly spaces around relation symbols.
-
-Please note that the \verb|{subequations}| environment in {\LaTeX}
-will increment the main equation counter even when there are no
-equation numbers displayed. If you forget that, you might write an
-article in which the equation numbers skip from (17) to (20), causing
-the copy editors to wonder if you've discovered a new method of
-counting.
-
-{\BibTeX} does not work by magic. It doesn't get the bibliographic
-data from thin air but from .bib files. If you use {\BibTeX} to produce a
-bibliography you must send the .bib files. 
-
-{\LaTeX} can't read your mind. If you assign the same label to a
-subsubsection and a table, you might find that Table I has been cross
-referenced as Table IV-B3. 
-
-{\LaTeX} does not have precognitive abilities. If you put a
-\verb|\label| command before the command that updates the counter it's
-supposed to be using, the label will pick up the last counter to be
-cross referenced instead. In particular, a \verb|\label| command
-should not go before the caption of a figure or a table.
-
-Do not use \verb|\nonumber| inside the \verb|{array}| environment. It
-will not stop equation numbers inside \verb|{array}| (there won't be
-any anyway) and it might stop a wanted equation number in the
-surrounding equation.
-
-\subsection{Some Common Mistakes}\label{SCM}
-\begin{itemize}
-\item The word ``data'' is plural, not singular.
-\item The subscript for the permeability of vacuum $\mu_{0}$, and other common scientific constants, is zero with subscript formatting, not a lowercase letter ``o''.
-\item In American English, commas, semicolons, periods, question and exclamation marks are located within quotation marks only when a complete thought or name is cited, such as a title or full quotation. When quotation marks are used, instead of a bold or italic typeface, to highlight a word or phrase, punctuation should appear outside of the quotation marks. A parenthetical phrase or statement at the end of a sentence is punctuated outside of the closing parenthesis (like this). (A parenthetical sentence is punctuated within the parentheses.)
-\item A graph within a graph is an ``inset'', not an ``insert''. The word alternatively is preferred to the word ``alternately'' (unless you really mean something that alternates).
-\item Do not use the word ``essentially'' to mean ``approximately'' or ``effectively''.
-\item In your paper title, if the words ``that uses'' can accurately replace the word ``using'', capitalize the ``u''; if not, keep using lower-cased.
-\item Be aware of the different meanings of the homophones ``affect'' and ``effect'', ``complement'' and ``compliment'', ``discreet'' and ``discrete'', ``principal'' and ``principle''.
-\item Do not confuse ``imply'' and ``infer''.
-\item The prefix ``non'' is not a word; it should be joined to the word it modifies, usually without a hyphen.
-\item There is no period after the ``et'' in the Latin abbreviation ``et al.''.
-\item The abbreviation ``i.e.'' means ``that is'', and the abbreviation ``e.g.'' means ``for example''.
-\end{itemize}
-An excellent style manual for science writers is \cite{b7}.
-
-\subsection{Authors and Affiliations}
-\textbf{The class file is designed for, but not limited to, six authors.} A 
-minimum of one author is required for all conference articles. Author names 
-should be listed starting from left to right and then moving down to the 
-next line. This is the author sequence that will be used in future citations 
-and by indexing services. Names should not be listed in columns nor group by 
-affiliation. Please keep your affiliations as succinct as possible (for 
-example, do not differentiate among departments of the same organization).
-
-\subsection{Identify the Headings}
-Headings, or heads, are organizational devices that guide the reader through 
-your paper. There are two types: component heads and text heads.
-
-Component heads identify the different components of your paper and are not 
-topically subordinate to each other. Examples include Acknowledgments and 
-References and, for these, the correct style to use is ``Heading 5''. Use 
-``figure caption'' for your Figure captions, and ``table head'' for your 
-table title. Run-in heads, such as ``Abstract'', will require you to apply a 
-style (in this case, italic) in addition to the style provided by the drop 
-down menu to differentiate the head from the text.
-
-Text heads organize the topics on a relational, hierarchical basis. For 
-example, the paper title is the primary text head because all subsequent 
-material relates and elaborates on this one topic. If there are two or more 
-sub-topics, the next level head (uppercase Roman numerals) should be used 
-and, conversely, if there are not at least two sub-topics, then no subheads 
-should be introduced.
-
-\subsection{Figures and Tables}
-\paragraph{Positioning Figures and Tables} Place figures and tables at the top and 
-bottom of columns. Avoid placing them in the middle of columns. Large 
-figures and tables may span across both columns. Figure captions should be 
-below the figures; table heads should appear above the tables. Insert 
-figures and tables after they are cited in the text. Use the abbreviation 
-``Fig.~\ref{fig}'', even at the beginning of a sentence.
-
-\begin{table}[htbp]
-\caption{Table Type Styles}
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-\textbf{Table}&\multicolumn{3}{|c|}{\textbf{Table Column Head}} \\
-\cline{2-4} 
-\textbf{Head} & \textbf{\textit{Table column subhead}}& \textbf{\textit{Subhead}}& \textbf{\textit{Subhead}} \\
-\hline
-copy& More table copy$^{\mathrm{a}}$& &  \\
-\hline
-\multicolumn{4}{l}{$^{\mathrm{a}}$Sample of a Table footnote.}
-\end{tabular}
-\label{tab1}
-\end{center}
-\end{table}
-
-\begin{figure}[htbp]
-\centerline{\includegraphics{fig1.png}}
-\caption{Example of a figure caption.}
-\label{fig}
+\subsection{Hardware development} 
+\subsubsection{Block Diagram}
+\hfill 
+\begin{figure}[H]
+\centerline{\includegraphics[width=0.5\textwidth]{blockdiag.png}}
+\vspace{-0.4cm}
+\caption{System block diagram.} 
+\label{blockdiag}
 \end{figure}
+\indent Figure \ref{blockdiag} is an illustration for the interconnections 
+of the system. The Raspberry Pi 5 facilitates the system algorithm 
+through the use of the web camera for the capture of handwritten notes and 
+the touchscreen display for the user inputs in dictating the system 
+operation. The power supply for the Raspberry Pi 5 allows for the delivery 
+of power to the accessory components and main hardware of the system.
+    \vspace{0.1cm}
+    \subsubsection{Experimental Setup}
+    \hfill \\
+\vspace{-0.6cm}
+\begin{figure}[H]
+\centerline{\includegraphics[width=3in]{experimental.png}}
+\vspace{-0.4cm}
+\caption{Constructed prototype and experimental setup.} 
+\label{experimental_setup}
+\end{figure}
+\indent The constructed prototype is shown in Figure \ref{experimental_setup}.
+Experimental setup is done where the system demands handwritten notes 
+in the interior of the prototype. An internet connection is required for
+the experimental setup. The user is then guided by the front-end 
+to capture the handwritten notes. Two halves are captured for the
+notes where the first half is the top half and the second half is the
+bottom half. The user is then prompted to confirm the captured notes
+for the system to proceed with the OCR operation. The system then
+proceeds with the OCR operation and the AQG operation. The user is then
+prompted to confirm the generated questions for the system to proceed
+with the PDF generation. The user is then prompted to download the PDF
+file for the generated questions.
+\subsection{Software development}
+\subsubsection{Algorithm Pipeline}
+\hfill
+\begin{figure}[H]
+\centerline{\includegraphics[width=3in]{pipeline.png}}
+\vspace{-0.4cm}
+\caption{Algorithm pipeline.} 
+\label{pipeline}
+\end{figure}
+\indent Shown in Figure \ref{pipeline} is the illustration 
+of the step-by-step flow of information on the system 
+algorithm. An image array in the memory of the system consists 
+of the image captures of the handwritten lecture notes in the 
+form of OpenCV image objects. These images undergo 
+a series of fast means denoising, thresholding, and 
+dilation to detect text lines. These text lines are stored in 
+another array where TrOCR performs batch inferences to attempt 
+extraction from the sources. spaCy and RAKE collects 
+relevant keywords and phrases as a basis for the question generation 
+which is sent to the T5 model for generation of questions. 
+These questions are then stored in an array for portable document 
+file (PDF).
+\subsubsection{Model Training}
+\hfill \\ 
+\indent The T5 base model was fine-tuned to the SQuADv1.1 
+dataset for the AQG operation with a learning rate of 
+$3 \times 10^{-5}$ for eight epochs using the Sequence2Sequence 
+trainer. The SQuADv1.1 dataset was loaded using the
+datasets library where the chosen input features 
+were the context and the question. The output feature 
+was the answer for the given pair of inputs.
+\subsection{Data Collection}
+\vspace{-0.2cm}
+\begin{figure}[H]
+\centerline{\includegraphics[width=3in]{datacollection.png}}
+\vspace{-0.3cm}
+\caption{Sample from the test set. Combined image vs. preprocessed image} 
+\label{datacollection}
+\end{figure}
+\indent Shown in Figure \ref{datacollection} is a sample 
+from the test set containing 70 handwritten notes collected from undergraduate
+classes on computer networks and cybersecurity. These notes were
+written in English, single-column, and diagram-free. A total of
+1800 individual text lines were extracted from the notes for the
+evaluation of the OCR operation through manual transcription
+and were saved in a comma-separated value (CSV) format for 
+analysis.
+\subsection{Testing and Evaluation}
+\vspace{-0.2cm}
+\begin{table}[H]
+\caption{Testing and Evaluation Table for OCR.}
+    \centering
+    \begin{tblr}{
+        colspec={@{}X[1] X[1] X[1] X[1]@{}}, % Makes columns flexible
+        column{1} = {c}, % Align first column to center
+        hlines,          % Adds horizontal lines
+    }
+    & \textbf{Student} & \textbf{Model} & \textbf{WER} \\
+    0 &  &  &  \\
+    ... & ... & ... & ... \\
+    70 & ... & ... & ... \\
+    &  &   &  Average\\  % Replace X, Y, Z with actual values
+    \end{tblr}
+    \label{ocrtable}
+\end{table}
+\indent Shown in Table \ref{ocrtable} is the evaluation of the OCR operation
+using the word error rate (WER) for the 70 handwritten notes. 
+Testing is done through the collection of the transcribed 
+text versus the inference of the model. The WER is
+calculated using the formula:
+\begin{equation}
+    WER = \frac{S + D + I}{N}
+\end{equation}
+where $S$ is the number of substitutions, $D$ is the number of deletions, $I$ is the number of insertions, and $N$ is the number of words in the reference text.
+\begin{table}[H]
+    \caption{Testing and Evaluation Table for AQG.}
+        \centering
+        \begin{tblr}{
+            colspec={@{}X[1] X[1] X[1] X[1] X[1] X[1]@{}}, % Makes columns flexible
+            column{1} = {c}, % Align first column to center
+            hlines,          % Adds horizontal lines
+        }
+        & \textbf{Keyword} & \textbf{Student} & \textbf{Model} & \textbf{ROUGE} & \textbf{BLEU}\\
+        0 &  &  &  & & \\
+        ... & ... & ... & ... & ... & ...\\
+        70  &     &     &     &     &   \\ 
+          &  &  &   & Average & Average\\  % Replace X, Y, Z with actual values
+        \end{tblr}
+        \label{aqgtable}
+        \end{table}
+\indent Shown in Table \ref{aqgtable} is the evaluation of the AQG operation
+using the Recall-Oriented Understudy for Gisting Evaluation (ROUGE) and the
+Bilingual Evaluation Understudy (BLEU) for the 70 handwritten notes.
+Testing is done through the collection of the generated questions versus the
+reference questions. The ROUGE and BLEU are calculated using the formula:
+\begin{equation}
+    ROUGE = \frac{1}{N} \sum_{i=1}^{N} \frac{2 \times (P \times R)}{(P + R)}
+\end{equation}
+\begin{equation}
+    BLEU = \frac{1}{N} \sum_{i=1}^{N} \frac{1}{r} \sum_{i=1}^{r} \min \left( \sum_{i=1}^{r} \text{count}_{\text{clip}}(ngram) \right)
+\end{equation}
+where $P$ is the precision, $R$ is the recall, $N$ is the number of notes, $r$ is the number of reference questions, and $\text{count}_{\text{clip}}$ is the count of the clipped n-grams.
+\section{Results and Discussion}
+\vspace{-0.2cm}
+\begin{figure}[H]
+    \centerline{\includegraphics[width=3in]{wer.png}}
+    \vspace{-0.5cm}
+    \caption{Computed WER and WOER} 
+    \label{wer}
+    \end{figure}
+\indent In Figure \ref{wer}, it was shown that a WER of 0.40 or 40\% 
+was realized from the implementation of the TrOCR model with a 
+word overlap error rate (WOER) of 0.247 or 24.7\% that 
+measures the completeness of the inference versus the reference.
+The relatively moderate magnitude of the WER was realized due to the 
+natural misalignment of the text lines from the handwritten notes. 
+Moreover, the lack of use-case specific fine-tuning to TrOCR 
+may have contributed to the WER magnitude. Nevertheless, the
+the 60\% accuracy allowed enough room for Gemini 1.5 Pro to correct 
+and bridge the gaps in the text digest to form valid questions.
+\begin{figure}[H]
+    \centerline{\includegraphics[width=3in]{validity.png}}
+    \vspace{-0.5cm}
+    \caption{Question Validity Rate Pie Chart} 
+    \label{validity}
+    \end{figure}
+\indent In Figure \ref{validity}, it revealed that the generated questions 
+by the system are valid 68\% of the time where out of 350 questions, 
+238 were valid in terms of coherency, grammar, and it's correlation 
+to the subject matter. The remaining invalidity was attributed to 
+possibly two aspects. The first is that the T5 model may have too little 
+parameters to generate questions that are more coherent and 
+grammatically correct. The second is that some keywords may have not been 
+corrected by the Gemini 1.5 Pro model which may have led to the
+propagation of errors in the generated questions.
+\begin{figure}[H]
+    \centerline{\includegraphics[width=3in]{eval.png}}
+    \vspace{-0.5cm}
+    \caption{ROUGE scores and BLEU evaluation} 
+    \label{eval}
+    \end{figure}
+Shown in Figure \ref{eval} is the evaluation of the AQG operation by means
+of the ROUGE scores from unigrams to trigrams as well as the BLEU scores. 
+A ROUGE-1 score of 0.36 meant that the system decently captures 
+the relevant keywords in the same way as students do. 
+Moreover, the ROUGE scores for bigrams and trigrams were 0.17
+and 0.12 meant that the system was tend to differ from the 
+students in terms of the grammatical structure of the questions
+because it was realized that the students tended to verbatimly copy 
+the structure of the basis context for the questions, while the 
+base T5 model generated questions that are more 
+dynamic in structure. Lastly, the BLEU score of 0.1 meant that 
+the system can pick up context, but not the exact logical structure 
+of students.
 
-Figure Labels: Use 8 point Times New Roman for Figure labels. Use words 
-rather than symbols or abbreviations when writing Figure axis labels to 
-avoid confusing the reader. As an example, write the quantity 
-``Magnetization'', or ``Magnetization, M'', not just ``M''. If including 
-units in the label, present them within parentheses. Do not label axes only 
-with units. In the example, write ``Magnetization (A/m)'' or ``Magnetization 
-\{A[m(1)]\}'', not just ``A/m''. Do not label axes with a ratio of 
-quantities and units. For example, write ``Temperature (K)'', not 
-``Temperature/K''.
+\section{Conclusion and Recommendations}
+\indent It was realized the AQG from handwritten notes 
+through TrOCR was possible, where the Raspberry Pi 5 
+and the constructed enclosing
+was able to cater the processes of the system with 
+decent context capture but unpredictable coherency and 
+structure. It is recommended that further preprocessing of the image 
+captures to improve the text extraction. Also, 
+the use of larger versions of TrOCR and T5 is recommended 
+alongside the use of a more powerful hardware for the system
+through processing power and an improved camera for 
+higher image resolutions.
 
 \section*{Acknowledgment}
+\indent This research endeavor would not have been possible with 
+the incredible support of the researchers' adviser, Engr. Analyn Yumang. Moreover, 
+much appreciation is given to the School of Electrical, Electronics, and Computer
+Engineering of Map\'ua University for the support and resources provided for the
+research.
 
-The preferred spelling of the word ``acknowledgment'' in America is without 
-an ``e'' after the ``g''. Avoid the stilted expression ``one of us (R. B. 
-G.) thanks $\ldots$''. Instead, try ``R. B. G. thanks$\ldots$''. Put sponsor 
-acknowledgments in the unnumbered footnote on the first page.
-
-\section*{References}
-
-Please number citations consecutively within brackets \cite{b1}. The 
-sentence punctuation follows the bracket \cite{b2}. Refer simply to the reference 
-number, as in \cite{b3}---do not use ``Ref. \cite{b3}'' or ``reference \cite{b3}'' except at 
-the beginning of a sentence: ``Reference \cite{b3} was the first $\ldots$''
-
-Number footnotes separately in superscripts. Place the actual footnote at 
-the bottom of the column in which it was cited. Do not put footnotes in the 
-abstract or reference list. Use letters for table footnotes.
-
-Unless there are six authors or more give all authors' names; do not use 
-``et al.''. Papers that have not been published, even if they have been 
-submitted for publication, should be cited as ``unpublished'' \cite{b4}. Papers 
-that have been accepted for publication should be cited as ``in press'' \cite{b5}. 
-Capitalize only the first word in a paper title, except for proper nouns and 
-element symbols.
-
-For papers published in translation journals, please give the English 
-citation first, followed by the original foreign-language citation \cite{b6}.
-
-\begin{thebibliography}{00}
-\bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
-\bibitem{b2} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.
-\bibitem{b3} I. S. Jacobs and C. P. Bean, ``Fine particles, thin films and exchange anisotropy,'' in Magnetism, vol. III, G. T. Rado and H. Suhl, Eds. New York: Academic, 1963, pp. 271--350.
-\bibitem{b4} K. Elissa, ``Title of paper if known,'' unpublished.
-\bibitem{b5} R. Nicole, ``Title of paper with only first word capitalized,'' J. Name Stand. Abbrev., in press.
-\bibitem{b6} Y. Yorozu, M. Hirano, K. Oka, and Y. Tagawa, ``Electron spectroscopy studies on magneto-optical media and plastic substrate interface,'' IEEE Transl. J. Magn. Japan, vol. 2, pp. 740--741, August 1987 [Digests 9th Annual Conf. Magnetics Japan, p. 301, 1982].
-\bibitem{b7} M. Young, The Technical Writer's Handbook. Mill Valley, CA: University Science, 1989.
-\end{thebibliography}
-\vspace{12pt}
-\color{red}
-IEEE conference templates contain guidance text for composing and formatting conference papers. Please ensure that all template text is removed from your conference paper prior to submission to the conference. Failure to remove the template text from your paper may result in your paper not being published.
-
+\bibliographystyle{IEEEtran}
+\bibliography{export}
 \end{document}
