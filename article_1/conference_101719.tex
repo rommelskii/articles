@@ -85,7 +85,7 @@ these cannot process handwritten notes
 due to the lack of integrated optical character recognition (OCR) 
 \cite{Arbaaeen2020}. AQG is derived from large language models (LLMs) 
 such as T5, BERT, and GPT-3, which have use cases from 
-treebanks \cite{Mesina2020} and classification of certain texts \cite{Padilla2020}.
+treebanks \cite{Mesina2020} and classification of certain texts \cite{Padilla2020} \cite{Mingua2021} \cite{Fernandez2023}.
 Existing AQG frameworks are categorized by 
 their information-processing methods, yet none address 
 handwritten sources \cite{Arbaaeen2020}. While \cite{Ou2022} demonstrated AQG 
@@ -95,7 +95,7 @@ unexplored. Other approaches include manual text input
 with part-of-speech (POS) tagging \cite{Moron2021}, rule-based methods 
 for programming code \cite{Gaur2023}, and the T5 model 
 fine-tuned on SQuAD for text-based AQG \cite{Tsai2021}. OCR, defined as 
-image-to-text conversion via convolutional neural networks (CNNs) \cite{Ligsay2022}, has been applied to handwritten Baybayin, medicinal mushroom classification \cite{Sutayco2024}, and expiry date extraction \cite{Manlises2024}. Through \cite{Calimag2023}, a use case combined CNNs with RNNs for real-time inference, evaluated via confusion matrices \cite{Ishikawa2020} \cite{Villaverde2023}. However, Transformer-based OCR (TrOCR) 
+image-to-text conversion via convolutional neural networks (CNNs) \cite{Ligsay2022}, has been applied to handwritten Baybayin \cite{Ligsay2022}, medicinal mushroom classification \cite{Sutayco2024}, and expiry date extraction \cite{Manlises2024}. Through \cite{Calimag2023}, a use case combined CNNs with RNNs for real-time inference, evaluated via confusion matrices \cite{Ishikawa2020} \cite{Villaverde2023}. However, Transformer-based OCR (TrOCR) 
 \cite{Li2021}, pre-trained on the IAM Handwriting Database, offers superior paragraph-level text recognition over character-
 focused CNNs \cite{Mortadi2023}. TrOCR’s robustness positions it as a critical enabler for AQG from handwritten lecture notes, addressing the identified gap in media diversity \cite{Arbaaeen2020}. 
 \\
@@ -113,7 +113,8 @@ for facilitating the system processes and experimental setup;
 and lastly, to evaluate the system using the word error 
 rate (WER) for the OCR, and the Recall-Oriented Understudy for 
 Gisting Evaluation (ROUGE) and the Bilingual Language Understanding 
-Evaluation (BLEU) for the quality of AQG.
+Evaluation (BLEU) for the comparison of AQG to the 
+student-generated questions.
 \\
 \indent This system only considers handwritten lecture notes 
 that are single-column, diagram and equation free, and written 
@@ -123,8 +124,6 @@ former uses SQuAD for the fine-tuning and Gemini 1.5 Pro for the
 text correction and context completion of OCR-extracted text as well as 
 the spaCy-Rake keyword extraction for AQG basis. Also, the system operation is confined 
 within the processing capability of the 8-gigabyte model of the Raspberry Pi 5.
-Consequently, this system is not expected to behave normally under the usage
-multi-column handwritten notes on lined paper on varying sizes. 
 A different model for OCR or AQG may lead to differing results as well as 
 for the text-enhancing model. Lastly, the usage of alternative hardware 
 may lead to different results.
@@ -269,10 +268,9 @@ reference questions. The ROUGE and BLEU are calculated using the formula:
 \end{equation}
 where $P$ is the precision, $R$ is the recall, $N$ is the number of notes, $r$ is the number of reference questions, and $\text{count}_{\text{clip}}$ is the count of the clipped n-grams.
 \section{Results and Discussion}
-\vspace{-0.2cm}
 \begin{figure}[H]
-    \centerline{\includegraphics[width=3in]{wer.png}}
-    \vspace{-0.5cm}
+    \centerline{\includegraphics[width=2.5in]{wer.png}}
+    \vspace{-0.4cm}
     \caption{Computed WER and WOER} 
     \label{wer}
     \end{figure}
@@ -287,7 +285,7 @@ may have contributed to the WER magnitude. Nevertheless, the
 the 60\% accuracy allowed enough room for Gemini 1.5 Pro to correct 
 and bridge the gaps in the text digest to form valid questions.
 \begin{figure}[H]
-    \centerline{\includegraphics[width=3in]{validity.png}}
+    \centerline{\includegraphics[width=2.5in]{validity.png}}
     \vspace{-0.5cm}
     \caption{Question Validity Rate Pie Chart} 
     \label{validity}
@@ -301,33 +299,39 @@ parameters to generate questions that are more coherent and
 grammatically correct. The second is that some keywords may have not been 
 corrected by the Gemini 1.5 Pro model which may have led to the
 propagation of errors in the generated questions.
+\newpage
 \begin{figure}[H]
-    \centerline{\includegraphics[width=3in]{eval.png}}
+    \centerline{\includegraphics[width=2.5in]{eval.png}}
     \vspace{-0.5cm}
     \caption{ROUGE scores and BLEU evaluation} 
     \label{eval}
     \end{figure}
+\vspace{-0.3cm}
 Shown in Figure \ref{eval} is the evaluation of the AQG operation by means
-of the ROUGE scores from unigrams to trigrams as well as the BLEU scores. 
-A ROUGE-1 score of 0.36 meant that the system decently captures 
+of the ROUGE scores and the BLEU scores. 
+It is important to settle first that the 27 questions made by the 
+students tend to be verbatim copies of the basis context. 
+A ROUGE-1 score of 0.356 meant that the system decently captures 
 the relevant keywords in the same way as students do. 
-Moreover, the ROUGE scores for bigrams and trigrams were 0.17
-and 0.12 meant that the system was tend to differ from the 
-students in terms of the grammatical structure of the questions
-because it was realized that the students tended to verbatimly copy 
-the structure of the basis context for the questions, while the 
-base T5 model generated questions that are more 
-dynamic in structure. Lastly, the BLEU score of 0.1 meant that 
-the system can pick up context, but not the exact logical structure 
-of students.
+Moreover, the ROUGE scores 0.17
+and 0.115 meant model-based questions differ from the 
+students by syntax
+because much students verbatimly copy 
+the structure of the context compared to the dynamic outputs 
+of the system. Lastly, the BLEU score of 0.097 meant that 
+the system can pick up context, but not the logical structure 
+of students due to high lexical variability. Ultimately, this means 
+that the questions generated by the system deviate from fixed structure, 
+but not impacting validity (Figure \ref{validity}).
 
 \section{Conclusion and Recommendations}
 \indent It was realized the AQG from handwritten notes 
 through TrOCR was possible, where the Raspberry Pi 5 
 and the constructed enclosing
-was able to cater the processes of the system with 
-decent context capture but unpredictable coherency and 
-structure. It is recommended that further preprocessing of the image 
+was able to cater the process of generating
+questions decent context capture but unpredictable coherency and 
+structure. \\
+\indent It is recommended that further preprocessing of the image 
 captures to improve the text extraction. Also, 
 the use of larger versions of TrOCR and T5 is recommended 
 alongside the use of a more powerful hardware for the system
@@ -339,7 +343,9 @@ higher image resolutions.
 the incredible support of the researchers' adviser, Engr. Analyn Yumang. Moreover, 
 much appreciation is given to the School of Electrical, Electronics, and Computer
 Engineering of Map\'ua University for the support and resources provided for the
-research.
+research. We also thank Dr. Jocelyn Villaverde, Engr. Meo Vincent Caya, 
+and Engr. Noel Linsangan for their insights and recommendations 
+for the research.
 
 \bibliographystyle{IEEEtran}
 \bibliography{export}
