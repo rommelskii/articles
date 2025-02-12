@@ -3,6 +3,8 @@
 % The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts}
+\usepackage{float}
+\usepackage[a4paper, top=19mm, bottom=43mm, left=14.3mm, right=14.3mm]{geometry} 
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
@@ -12,14 +14,15 @@
 \begin{document}
 
 \title{Automatic Question Generation from Handwritten Lecture Notes on
-KeyBERT-indexed T5-TrOCR Pipeline with Gemini Context Correction\\
+KeyBERT-indexed T5-TrOCR Pipeline with Gemini Context Correction}
+
 \author{\IEEEauthorblockN{Rommel John Ronduen\textsuperscript{1}, Jan Adrian Manzanero\textsuperscript{2}, Analyn Yumang\textsuperscript{3}}
 \IEEEauthorblockA{\textit{School of Electrical, Electronics, and Computer Engineering} \\
 \textit{Mapua University}\\
 Manila, Philippines \\
-\textsuperscript{1}rjhronduen@mymail.mapua.edu.ph\\ 
-\textsuperscript{2}jacmanzanero@mymail.mapua.edu.ph\\ 
-\textsuperscript{3}anyumang@mapua.edu.ph}}
+\textsuperscript{1}\texttt{rjhronduen@mymail.mapua.edu.ph}\\ 
+\textsuperscript{2}\texttt{jacmanzanero@mymail.mapua.edu.ph}\\ 
+\textsuperscript{3}\texttt{anyumang@mapua.edu.ph}}
 }
 
 \maketitle
@@ -139,15 +142,122 @@ utilization of a different hardware setup may also lead to alternative, if not,
 better results in terms of processing time. 
 
 
-
+%BEGIN II
 \section{Materials and Methods}
     \subsection{Hardware Development}
         \subsubsection{System Block Diagram}
+            \hfill \\
+            \vspace{-0.6cm}
+            \begin{figure}[H]
+                \centerline{\includegraphics[width=3in]{blockdiag.png}}
+                \vspace{-0.3cm}
+                \caption{System block diagram.} 
+                \label{blockdiagram}
+            \end{figure} 
+            \vspace{-0.4cm}
+            \indent The system block diagram is shown in Figure 
+            \ref{blockdiagram}. The system is composed of a 
+            Raspberry Pi 5, a web camera, and a 
+            touchscreen monitor. The Raspberry Pi 5 is the main 
+            processing unit of the system. The web camera is 
+            used for capturing images of handwritten lecture notes. 
+            The touchscreen monitor is used for displaying the 
+            generated questions. The system is enclosed in a box 
+            with proper illumination for the facilitation of the 
+            processes.
+        \vspace{0.2cm}
         \subsubsection{Experimental Setup}
+            \hfill \\
+            \vspace{-0.6cm}
+            \begin{figure}[H]
+                \centerline{\includegraphics[width=3in]{experimental.png}}
+                \vspace{-0.3cm}
+                \caption{Experimental setup.} 
+                \label{experimental}
+            \end{figure} 
+            \vspace{-0.3cm}
+            \indent The experimental setup is shown in 
+            Figure \ref{experimental}. The system is enclosed in a
+            constructed wooden box with proper illumination. The
+            Raspberry Pi 5 is connected to the web camera and the
+            touchscreen monitor. The web camera is used for capturing
+            images of handwritten lecture notes. The touchscreen
+            monitor is used for guiding the user in the system
+            processes.
     \subsection{Software Development}
         \subsubsection{System Flowchart}
-        \subsubsection{Model Fine-tuning}
+            \hfill \\
+            \begin{figure}[H]
+                \centerline{\includegraphics[width=3in]{flowchart.png}}
+                \vspace{-0.4cm}
+                \caption{System flowchart.} 
+                \label{flowchart}
+            \end{figure}
+            \indent The system flowchart is shown in 
+           Figure \ref{flowchart}. The system 
+           starts with the collection and expectation of 
+           the image captures of the top and bottom halves 
+           of the notes. The image captures are then
+           combined and undergone a series of image 
+           transformations that extracts the text lines. 
+           These text lines are inputted to the TrOCR for 
+           inferencing and the extracted text is then
+           inputted to the T5 for AQG. The generated
+           questions are formatted to a portable document
+              format (PDF) and uploaded to Google Drive 
+            where a QR is generated for the user to download 
+            the PDF on their device. JSON payload is then sent 
+            to the front end of the system for the 
+            notification on the touchscreen display.
+        \vspace{0.4cm}
+        \subsubsection{T5 AQG}
+            \hfill \\
+            \vspace{-0.5cm}
+            \begin{figure}[H]
+                \centerline{\includegraphics[width=3in]{t5arch.png}}
+                \vspace{-0.4cm}
+                \caption{T5 model architecture.} 
+                \label{t5architecture}
+            \end{figure}
+            \vspace{-0.4cm}
+            \indent Figure \ref{t5architecture} shows the 
+            layers and components of the T5 model. 
+            The important aspect from this is that T5 
+            contains a final output layer that allows 
+            for fine-tuning. \\ 
+            \indent In this research, T5 was fine-tuned 
+            to the SQuADv1.1 dataset. The input features 
+            considered were the context and the chosen 
+            answer phrase/keyword. The output feature
+            was the question generated from the context
+            and the chosen answer phrase/keyword. 
+            
     \subsection{Data Gathering}
+        \hfill \\
+        \vspace{-1cm}
+        \begin{figure}[H]
+            \centerline{\includegraphics[width=3in]{datacollection.png}}
+            \vspace{-0.3cm}
+            \caption{Sample captured notes (with processed version on right).} 
+            \label{datacollection}
+        \end{figure} 
+        \vspace{-0.3cm} 
+        \indent A sample capture from the procured testing dataset 
+        is shown in Figure \ref{datacollection}. 
+        A total of 70 handwritten lecture notes were collected
+        from an undergraduate class on computer networking and 
+        cybersecurity. A total of 1800 text lines were extracted by the 
+        system. These text lines were manually transcribed for reference.
+        \\
+        \indent From the top five keywords extracted from the handwritten notes
+        (MAC, ethernet, address, data, frame), 
+        a class of 27 students in the same course 
+        were asked to generate questions from those top keywords. A 
+        context was given to the students as a summary from the 
+        notes. As such, 135 questions were collected for the comparison 
+        between the model-generated questions versus the ones 
+        from students.
+
     \subsection{Testing and Evaluation}
 
 \section{Results and Discussion}

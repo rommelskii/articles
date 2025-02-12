@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2025.1.26)  10 FEB 2025 16:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2025.1.26)  12 FEB 2025 11:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -182,18 +182,44 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/algorithms/algorithmic.sty
+)) (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count281
+\float@exts=\toks23
+\float@box=\box55
+\@float@everytoks=\toks24
+\@floatcapt=\box56
+) (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks25
+) (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count282
+\Gm@cntv=\count283
+\c@Gm@tempcnt=\count284
+\Gm@bindingoffset=\dimen173
+\Gm@wd@mp=\dimen174
+\Gm@odd@mp=\dimen175
+\Gm@even@mp=\dimen176
+\Gm@layoutwidth=\dimen177
+\Gm@layoutheight=\dimen178
+\Gm@layouthoffset=\dimen179
+\Gm@layoutvoffset=\dimen180
+\Gm@dimlist=\toks26
+) (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/algorithms/algorithmic.sty
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
  (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
-) (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
-\KV@toks@=\toks23
 )
-\c@ALC@unique=\count281
-\c@ALC@line=\count282
-\c@ALC@rem=\count283
-\c@ALC@depth=\count284
+\c@ALC@unique=\count285
+\c@ALC@line=\count286
+\c@ALC@rem=\count287
+\c@ALC@depth=\count288
 \ALC@tlm=\skip54
 \algorithmicindent=\skip55
 ) (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics/graphicx.sty
@@ -209,8 +235,8 @@ Package graphics Info: Driver file: pdftex.def on input line 107.
  (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen173
-\Gin@req@width=\dimen174
+\Gin@req@height=\dimen181
+\Gin@req@width=\dimen182
 ) (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 ) (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/xcolor/xcolor.sty
@@ -231,84 +257,162 @@ Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
 ) (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count285
-\l__pdf_internal_box=\box55
+\l__color_backend_stack_int=\count289
+\l__pdf_internal_box=\box57
 ) (./conference_101719.aux)
 \openout1 = `conference_101719.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
 
--- Lines per column: 56 (exact).
+-- Lines per column: 55 (approximate, difference = 8.63977pt).
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(40.68744pt, 516.133pt, 40.68744pt)
+* v-part:(T,H,B)=(54.06023pt, 668.63977pt, 122.34685pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=516.133pt
+* \textheight=668.63977pt
+* \oddsidemargin=-31.58255pt
+* \evensidemargin=-31.58255pt
+* \topmargin=-48.77737pt
+* \headheight=12.0pt
+* \headsep=18.56761pt
+* \topskip=12.0pt
+* \footskip=40.5821pt
+* \marginparwidth=20.0pt
+* \marginparsep=10.0pt
+* \columnsep=12.0pt
+* \skip\footins=10.79993pt plus 4.79993pt minus 2.39996pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumntrue
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count286
-\scratchdimen=\dimen175
-\scratchbox=\box56
-\nofMPsegments=\count287
-\nofMParguments=\count288
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count289
-\MPscratchDim=\dimen176
-\MPnumerator=\count290
-\makeMPintoPDFobject=\count291
-\everyMPtoPDFconversion=\toks25
+\scratchcounter=\count290
+\scratchdimen=\dimen183
+\scratchbox=\box58
+\nofMPsegments=\count291
+\nofMParguments=\count292
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count293
+\MPscratchDim=\dimen184
+\MPnumerator=\count294
+\makeMPintoPDFobject=\count295
+\everyMPtoPDFconversion=\toks28
 ) (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 25.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 25.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 28.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 28.
  (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 25.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 28.
  (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1{/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}{/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/enc/dvips/base/8r.enc}
+)
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 28.
+ (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1{/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}{/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 
 ]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Warning: Citation `b1' on page 2 undefined on input line 165.
+<blockdiag.png, id=11, 1195.8276pt x 476.0184pt>
+File: blockdiag.png Graphic file (type png)
+<use blockdiag.png>
+Package pdftex.def Info: blockdiag.png  used on input line 152.
+(pdftex.def)             Requested size: 216.81pt x 86.30426pt.
+<experimental.png, id=13, 568.1225pt x 327.2225pt>
+File: experimental.png Graphic file (type png)
+<use experimental.png>
+Package pdftex.def Info: experimental.png  used on input line 173.
+(pdftex.def)             Requested size: 216.81pt x 124.87509pt.
+<flowchart.png, id=14, 1128.6165pt x 979.0176pt>
+File: flowchart.png Graphic file (type png)
+<use flowchart.png>
+Package pdftex.def Info: flowchart.png  used on input line 191.
+(pdftex.def)             Requested size: 216.81pt x 188.06186pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--195
+
+ []
+
+[2 <./blockdiag.png> <./experimental.png>]
+<t5arch.png, id=20, 712.8231pt x 491.9178pt>
+File: t5arch.png Graphic file (type png)
+<use t5arch.png>
+Package pdftex.def Info: t5arch.png  used on input line 217.
+(pdftex.def)             Requested size: 216.81pt x 149.61812pt.
+<datacollection.png, id=21, 1379.6343pt x 771.1209pt>
+File: datacollection.png Graphic file (type png)
+<use datacollection.png>
+Package pdftex.def Info: datacollection.png  used on input line 239.
+(pdftex.def)             Requested size: 216.81pt x 121.18155pt.
+
+Underfull \vbox (badness 1708) has occurred while \output is active []
 
 
-LaTeX Warning: Citation `b2' on page 2 undefined on input line 166.
+
+LaTeX Warning: Citation `b1' on page 3 undefined on input line 275.
 
 
-LaTeX Warning: Citation `b3' on page 2 undefined on input line 167.
+LaTeX Warning: Citation `b2' on page 3 undefined on input line 276.
 
 
-LaTeX Warning: Citation `b3' on page 2 undefined on input line 167.
+LaTeX Warning: Citation `b3' on page 3 undefined on input line 277.
 
 
-LaTeX Warning: Citation `b3' on page 2 undefined on input line 167.
+LaTeX Warning: Citation `b3' on page 3 undefined on input line 277.
 
 
-LaTeX Warning: Citation `b3' on page 2 undefined on input line 168.
+LaTeX Warning: Citation `b3' on page 3 undefined on input line 277.
 
 
-LaTeX Warning: Citation `b4' on page 2 undefined on input line 176.
+LaTeX Warning: Citation `b3' on page 3 undefined on input line 278.
 
 
-LaTeX Warning: Citation `b5' on page 2 undefined on input line 177.
+LaTeX Warning: Citation `b4' on page 3 undefined on input line 286.
 
 
-LaTeX Warning: Citation `b6' on page 2 undefined on input line 182.
+LaTeX Warning: Citation `b5' on page 3 undefined on input line 287.
+
+
+LaTeX Warning: Citation `b6' on page 3 undefined on input line 292.
 
 
 ** Conference Paper **
@@ -321,7 +425,9 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[2] (./conference_101719.aux)
+[3 <./flowchart.png> <./t5arch.png> <./datacollection.png>] [4
+
+] (./conference_101719.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -332,18 +438,18 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 4172 strings out of 474116
- 66692 string characters out of 5732613
+ 4880 strings out of 474116
+ 77963 string characters out of 5732613
  1945187 words of memory out of 5000000
- 26500 multiletter control sequences out of 15000+600000
- 596652 words of font info for 111 fonts, out of 8000000 for 9000
+ 27188 multiletter control sequences out of 15000+600000
+ 597167 words of font info for 113 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,11n,65p,271b,334s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on conference_101719.pdf (2 pages, 77196 bytes).
+ 57i,11n,65p,271b,360s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on conference_101719.pdf (4 pages, 8580053 bytes).
 PDF statistics:
- 37 PDF objects out of 1000 (max. 8388607)
- 22 compressed objects within 1 object stream
+ 59 PDF objects out of 1000 (max. 8388607)
+ 30 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
