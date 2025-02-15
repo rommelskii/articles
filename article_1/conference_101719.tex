@@ -55,9 +55,11 @@ anyumang@mapua.edu.ph}
     type questions are created from image captures of single-column handwritten notes that only contain textual information. The 
     T5 large language model (LLM) used was fine-tuned using the 
     Stanford Question Answering Dataset (SQuAD) for facilitating question 
-    generation. Evaluation was done using a procured 
-    set of handwritten notes on a cybersecurity, and networks undergraduate class described by the word 
-    error rate (WER) for content extraction, and the Recall-Oriented Understudy for Gisting Evaluation (ROUGE) as well as the Bilingual Evaluation Understudy (BLEU) for question generation. This research helps to promote the ease of creation of learning materials in learner education.
+    generation. The system had a word error rate (WER) of 
+    0.40, a ROUGE-1 score of 0.358, and a question validity rate of 
+    68\%.
+    This research helps to promote the ease of creation of 
+    learning materials in learner education.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -104,7 +106,7 @@ general objective of performing AQG from handwritten lecture
 notes using TrOCR text recognition and T5 language processing.
 Specifically, this research aims to extract text from
 handwritten lecture notes using TrOCR and refine such text 
-using the Gemini 1.5 Pro large language model (LLM); utilize 
+using the Gemini 1.5 Flash large language model (LLM); utilize 
 a fine-tuned base version of T5 on SQuAD for AQG on 
 indexed keywords from spaCy and Rapid Automatic Keyword 
 Extraction (RAKE) on the refined text; utilize a Raspberry 
@@ -120,7 +122,7 @@ student-generated questions.
 that are single-column, diagram and equation free, and written 
 in English on plain sheet letter-size paper. It is important to note that 
 this system utilizes the base versions of the T5 and TrOCR models where the 
-former uses SQuAD for the fine-tuning and Gemini 1.5 Pro for the 
+former uses SQuAD for the fine-tuning and Gemini 1.5 Flash for the 
 text correction and context completion of OCR-extracted text as well as 
 the spaCy-Rake keyword extraction for AQG basis. Also, the system operation is confined 
 within the processing capability of the 8-gigabyte model of the Raspberry Pi 5.
@@ -137,7 +139,7 @@ may lead to different results.
 \caption{System block diagram.} 
 \label{blockdiag}
 \end{figure}
-\indent Figure \ref{blockdiag} is an illustration for the interconnections 
+\indent Fig. \ref{blockdiag} is an illustration for the interconnections 
 of the system. The Raspberry Pi 5 facilitates the system algorithm 
 through the use of the web camera for the capture of handwritten notes and 
 the touchscreen display for the user inputs in dictating the system 
@@ -153,7 +155,7 @@ of power to the accessory components and main hardware of the system.
 \caption{Constructed prototype and experimental setup.} 
 \label{experimental_setup}
 \end{figure}
-\indent The constructed prototype is shown in Figure \ref{experimental_setup}.
+\indent The constructed prototype is shown in Fig. \ref{experimental_setup}.
 Experimental setup is done where the system demands handwritten notes 
 in the interior of the prototype. An internet connection is required for
 the experimental setup. The user is then guided by the front-end 
@@ -174,7 +176,7 @@ file for the generated questions.
 \caption{Algorithm pipeline.} 
 \label{pipeline}
 \end{figure}
-\indent Shown in Figure \ref{pipeline} is the illustration 
+\indent Shown in Fig. \ref{pipeline} is the illustration 
 of the step-by-step flow of information on the system 
 algorithm. An image array in the memory of the system consists 
 of the image captures of the handwritten lecture notes in the 
@@ -204,14 +206,19 @@ was the answer for the given pair of inputs.
 \caption{Sample from the test set. Combined image vs. preprocessed image} 
 \label{datacollection}
 \end{figure}
-\indent Shown in Figure \ref{datacollection} is a sample 
+\indent Shown in Fig. \ref{datacollection} is a sample 
 from the test set containing 70 handwritten notes collected from undergraduate
 classes on computer networks and cybersecurity. These notes were
 written in English, single-column, and diagram-free. A total of
 1800 individual text lines were extracted from the notes for the
 evaluation of the OCR operation through manual transcription
 and were saved in a comma-separated value (CSV) format for 
-analysis.
+analysis. \\
+\indent Moreover, 135 questions were collected from the students that wrote the 
+notes. The top five most common keywords from the overall extracted text 
+(MAC, ethernet, address, data, and frame) were utilized as the basis 
+for the questions alongside a summary written from the extracted notes 
+that contained such keywords. 
 \subsection{Testing and Evaluation}
 \vspace{-0.2cm}
 \begin{table}[H]
@@ -223,9 +230,9 @@ analysis.
         hlines,          % Adds horizontal lines
     }
     & \textbf{Student} & \textbf{Model} & \textbf{WER} \\
-    0 &  &  &  \\
+    1 &  &  &  \\
     ... & ... & ... & ... \\
-    70 & ... & ... & ... \\
+    70 &  &  &  \\
     &  &   &  Average\\  % Replace X, Y, Z with actual values
     \end{tblr}
     \label{ocrtable}
@@ -243,23 +250,26 @@ where $S$ is the number of substitutions, $D$ is the number of deletions, $I$ is
     \caption{Testing and Evaluation Table for AQG.}
         \centering
         \begin{tblr}{
-            colspec={@{}X[1] X[1] X[1] X[1] X[1] X[1]@{}}, % Makes columns flexible
+            colspec={@{}X[1] X[1] X[1] X[1] X[1]@{}}, % Makes columns flexible
             column{1} = {c}, % Align first column to center
             hlines,          % Adds horizontal lines
         }
-        & \textbf{Keyword} & \textbf{Student} & \textbf{Model} & \textbf{ROUGE} & \textbf{BLEU}\\
-        0 &  &  &  & & \\
-        ... & ... & ... & ... & ... & ...\\
-        70  &     &     &     &     &   \\ 
-          &  &  &   & Average & Average\\  % Replace X, Y, Z with actual values
+        & \textbf{Student} & \textbf{Model} & \textbf{ROUGE} & \textbf{BLEU}\\
+        1 &  &  &  & & \\
+        ... & ... & ... & ... & ... \\
+        135 &     &     &     &     \\ 
+          &  &  &   Average & Average & \\  % Replace X, Y, Z with actual values
         \end{tblr}
         \label{aqgtable}
         \end{table}
 \indent Shown in Table \ref{aqgtable} is the evaluation of the AQG operation
 using the Recall-Oriented Understudy for Gisting Evaluation (ROUGE) and the
-Bilingual Evaluation Understudy (BLEU) for the 70 handwritten notes.
-Testing is done through the collection of the generated questions versus the
-reference questions. The ROUGE and BLEU are calculated using the formula:
+Bilingual Evaluation Understudy (BLEU). Data collection allowed for 
+the accumulation of 135 questions from students. Using the top five 
+keywords from the handwritten lecture notes, 
+it is compared with the model-generated results using the basis keyword 
+and context. ROUGE and BLEU are computed as 
+follows:
 \begin{equation}
     ROUGE = \frac{1}{N} \sum_{i=1}^{N} \frac{2 \times (P \times R)}{(P + R)}
 \end{equation}
@@ -274,7 +284,7 @@ where $P$ is the precision, $R$ is the recall, $N$ is the number of notes, $r$ i
     \caption{Computed WER and WOER} 
     \label{wer}
     \end{figure}
-\indent In Figure \ref{wer}, it was shown that a WER of 0.40 or 40\% 
+\indent In Fig. \ref{wer}, it was shown that a WER of 0.40 or 40\% 
 was realized from the implementation of the TrOCR model with a 
 word overlap error rate (WOER) of 0.247 or 24.7\% that 
 measures the completeness of the inference versus the reference.
@@ -282,38 +292,38 @@ The relatively moderate magnitude of the WER was realized due to the
 natural misalignment of the text lines from the handwritten notes. 
 Moreover, the lack of use-case specific fine-tuning to TrOCR 
 may have contributed to the WER magnitude. Nevertheless, the
-the 60\% accuracy allowed enough room for Gemini 1.5 Pro to correct 
+the 60\% accuracy allowed enough room for Gemini 1.5 Flash to correct 
 and bridge the gaps in the text digest to form valid questions.
 \begin{figure}[H]
-    \centerline{\includegraphics[width=2.5in]{validity.png}}
-    \vspace{-0.5cm}
+    \centerline{\includegraphics[width=3in]{validity.png}}
+    \vspace{-0.3cm}
     \caption{Question Validity Rate Pie Chart} 
     \label{validity}
     \end{figure}
-\indent In Figure \ref{validity}, it revealed that the generated questions 
+\indent In Fig. \ref{validity}, it revealed that the generated questions 
 by the system are valid 68\% of the time where out of 350 questions, 
 238 were valid in terms of coherency, grammar, and it's correlation 
 to the subject matter. The remaining invalidity was attributed to 
 possibly two aspects. The first is that the T5 model may have too little 
 parameters to generate questions that are more coherent and 
 grammatically correct. The second is that some keywords may have not been 
-corrected by the Gemini 1.5 Pro model which may have led to the
+corrected by the Gemini 1.5 Flash model which may have led to the
 propagation of errors in the generated questions.
 \newpage
 \begin{figure}[H]
     \centerline{\includegraphics[width=2.5in]{eval.png}}
-    \vspace{-0.5cm}
+    \vspace{-0.3cm}
     \caption{ROUGE scores and BLEU evaluation} 
     \label{eval}
-    \end{figure}
+\end{figure}
 \vspace{-0.3cm}
-Shown in Figure \ref{eval} is the evaluation of the AQG operation by means
+Shown in Fig. \ref{eval} is the evaluation of the AQG operation by means
 of the ROUGE scores and the BLEU scores. 
-It is important to settle first that the 27 questions made by the 
+It is important to settle first that the questions made by the 
 students tend to be verbatim copies of the basis context. 
-A ROUGE-1 score of 0.356 meant that the system decently captures 
+A ROUGE-1 score of 0.358 meant that the system decently captures 
 the relevant keywords in the same way as students do. 
-Moreover, the ROUGE scores 0.17
+Moreover, the ROUGE scores 0.166
 and 0.115 meant model-based questions differ from the 
 students by syntax
 because much students verbatimly copy 
@@ -322,7 +332,7 @@ of the system. Lastly, the BLEU score of 0.097 meant that
 the system can pick up context, but not the logical structure 
 of students due to high lexical variability. Ultimately, this means 
 that the questions generated by the system deviate from fixed structure, 
-but not impacting validity (Figure \ref{validity}).
+but not impacting validity (Fig. \ref{validity}).
 
 \section{Conclusion and Recommendations}
 \indent It was realized the AQG from handwritten notes 
@@ -336,16 +346,9 @@ captures to improve the text extraction. Also,
 the use of larger versions of TrOCR and T5 is recommended 
 alongside the use of a more powerful hardware for the system
 through processing power and an improved camera for 
-higher image resolutions.
+higher image resolutions. Lastly, an alternative method 
+for text enhancement is recommended.
 
-\section*{Acknowledgment}
-\indent This research endeavor would not have been possible with 
-the incredible support of the researchers' adviser, Engr. Analyn Yumang. Moreover, 
-much appreciation is given to the School of Electrical, Electronics, and Computer
-Engineering of Map\'ua University for the support and resources provided for the
-research. We also thank Dr. Jocelyn Villaverde, Engr. Meo Vincent Caya, 
-and Engr. Noel Linsangan for their insights and recommendations 
-for the research.
 
 \bibliographystyle{IEEEtran}
 \bibliography{export}

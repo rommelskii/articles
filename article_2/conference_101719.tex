@@ -9,17 +9,17 @@
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
+\usepackage{tabularray}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
 \title{Automatic Question Generation from Handwritten Lecture Notes on
-KeyBERT-indexed T5-TrOCR Pipeline with Gemini Context Correction}
-
+KeyBERT-indexed T5-TrOCR Pipeline}
 \author{\IEEEauthorblockN{Rommel John Ronduen\textsuperscript{1}, Jan Adrian Manzanero\textsuperscript{2}, Analyn Yumang\textsuperscript{3}}
 \IEEEauthorblockA{\textit{School of Electrical, Electronics, and Computer Engineering} \\
 \textit{Mapua University}\\
-Manila, Philippines \\
+Manila, Philippines 1002\\
 \textsuperscript{1}\texttt{rjhronduen@mymail.mapua.edu.ph}\\ 
 \textsuperscript{2}\texttt{jacmanzanero@mymail.mapua.edu.ph}\\ 
 \textsuperscript{3}\texttt{anyumang@mapua.edu.ph}}
@@ -37,7 +37,8 @@ using the SQuADv1.1 dataset while the pre-trained handwritten base version for
 TrOCR was used. The system was evaluated using the word error rate (WER) for
 OCR evaluation, while the Recall-Oriented Understudy for Gisting Evaluation (ROUGE)
 and Bilingual Language Understanding Evaluation (BLEU) were used for AQG evaluation. 
-The system achieved a WER of 0.40 and a question validity rate of 68\%.
+The system achieved an 85.1\% question validity rate with a WER of 0.40 and ROUGE-1 
+score of 0.358.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -57,23 +58,27 @@ Despite existing implementations of AQG, no attempt has been given for utilizing
 handwritten lecture notes as a source for AQG. There have been several
 approaches to AQG, such as rule-based, template-based, and neural-based,
 but none of these approaches have been applied to handwritten lecture notes as 
-a direct source for AQG through image capturing and OCR. It is noted by (Arbaaeen) AQG is defined by the methods used to generate questions.
+a direct source for AQG through image capturing and OCR. It is noted by \cite{Arbaaeen2020}
+AQG is defined by the methods used to generate questions.
 The AQG system is composed of three main components: the context extraction and
-parsing, the question generation, and the question validation. AQG systems differ in the method of extracting information and also 
+parsing, the question generation, and the question validation. 
+Moreover, AQG implementations tend to use large language models (LLMs) 
+and other forms of neural networks for use cases such as 
+filtering \cite{Fernandez2023} AQG systems differ in the method of extracting information and also 
 the type of information that is being extracted. In fact, it was noted by them 
 that it is suggested that AQG implementations utilize other forms of media 
-sources for context bases. For instance, (Gaur) conceived 
+sources for context bases. For instance, \cite{Gaur2023} conceived 
 of an AQG system that utilizes programming source code as the context for question
 generation based on selected keywords from the code snippets. However, these 
 code snippets were assumed to be transcribed as an input to the system and not 
 from the handwritten medium. Another use case
-through (Ou) involved the use of recorded videos as a source for AQG 
+through \cite{Ou2022} involved the use of recorded videos as a source for AQG 
 that led to question-answer pairs through the 
 Bidirection and Auto-Regressive Transformer (BART) model for
 the search of sentences in the text. They utilized an algorithm of indexing or 
 searching through the extracted context for specific question generations, which 
 will be explained further in the succeeding text. Despite this, the researchers utilized 
-a recorded video as a source. On the other hand, (Moron) 
+a recorded video as a source. On the other hand, \cite{Moron2021}
 allowed for an implementation of AQG through the use of named entity recognition 
 (NER) and semantic rules for question generation in aiding the learning of 
 English that led to the generation of questions that primarily answered the
@@ -84,8 +89,8 @@ developed to generate questions from handwritten lecture notes.
 There exists a variety in the algorithms used for AQG, such as the use of 
 the BART model for question generation through the use of a search algorithm and 
 the use of NER and semantic rules for question generation. An example includes 
-the use of treebanks for providing for inferences (Padilla). However, one such study
-by (Tsai) utilized the use of the Text-to-Text Transformer (T5) model for AQG and
+the use of treebanks for providing for inferences \cite{Mesina2020}. However, one such study
+by \cite{Tsai2021} utilized the use of the Text-to-Text Transformer (T5) model for AQG and
 the evaluation utilizing the Recall-Oriented Understudy for Gisting Evaluation (ROUGE)
 and the Bilingual Evaluation Understudy (BLEU) metrics. 
 The Stanford Question Answering Dataset (SQuAD) was used for the 
@@ -98,21 +103,21 @@ being fine-tuned to a specific dataset, it was chosen as the model for AQG in th
 research. In bridging the gap for AQG from handwritten lecture notes,
 the Transformer-based Optical Character Recognition (TrOCR) model was used for the optical character recognition (OCR) of the 
 handwritten lecture notes. Starting first with OCR, it is often associated with 
-convolutional neural networks (CNN) and recurrent neural networks (RNN). As noted 
-by (Manlises) the use of CNNs for OCR is often used for the detection of text
+convolutional neural networks (CNN) and recurrent neural networks (RNN) \cite{Gallenero2023}. As noted 
+by \cite{Calimag2023} the use of CNNs for OCR is often used for the detection of text
 in images and even objects such as that of the implementation for the detection 
-of the different types of mushrooms (Caya). CNNs have also been used for 
+of the different types of mushrooms \cite{Sutayco2024}. CNNs have also been used for 
 recognizing text through the transformation of shorthand terminologies to 
-English text (Vitug). In fact, it was shown by (Ligsay) that it was 
+English text \cite{Padilla2020}. In fact, it was shown by \cite{Ligsay2022} that it was 
 possible to recognize text in Baybayin (a Filipino lettering system) 
 using CNNs. Another involved the identification of expiry dates on 
-canned goods (Manlises). In terms of evaluation, these CNNs are often evaluated 
+canned goods \cite{Manlises2024}. In terms of evaluation, these CNNs are often evaluated 
 using confusion matrices. These confusion matrices are used to evaluate the
 performance of the OCR model in terms of the true positive, true negative, false
-positive, and false negative values (Villaverde). However, a transformer-based
-approach has been used for OCR, such as the TrOCR model (Li) which has been used in recognition of text from 
-scanned receipts (Zhang) and even in the recognition of text from images of 
-Arabic text (Mortadi). The model has been exemplary over the use of CNNs by its 
+positive, and false negative values \cite{Villaverde2023}. However, a transformer-based
+approach has been used for OCR, such as the TrOCR model \cite{Li2021} which has been used in recognition of text from 
+scanned receipts \cite{Zhang2023} and even in the recognition of text from images of 
+Arabic text \cite{Mortadi2023}. The model has been exemplary over the use of CNNs by its 
 encoder-decoder framework with pre-trained weights for the recognition of text.
 \\
 \indent In lieu of the gap on AQG from utilizing handwritten lecture notes, 
@@ -155,7 +160,7 @@ better results in terms of processing time.
                 \label{blockdiagram}
             \end{figure} 
             \vspace{-0.4cm}
-            \indent The system block diagram is shown in Figure 
+            \indent The system block diagram is shown in Fig. 
             \ref{blockdiagram}. The system is composed of a 
             Raspberry Pi 5, a web camera, and a 
             touchscreen monitor. The Raspberry Pi 5 is the main 
@@ -177,7 +182,7 @@ better results in terms of processing time.
             \end{figure} 
             \vspace{-0.3cm}
             \indent The experimental setup is shown in 
-            Figure \ref{experimental}. The system is enclosed in a
+            Fig. \ref{experimental}. The system is enclosed in a
             constructed wooden box with proper illumination. The
             Raspberry Pi 5 is connected to the web camera and the
             touchscreen monitor. The web camera is used for capturing
@@ -194,7 +199,7 @@ better results in terms of processing time.
                 \label{flowchart}
             \end{figure}
             \indent The system flowchart is shown in 
-           Figure \ref{flowchart}. The system 
+           Fig. \ref{flowchart}. The system 
            starts with the collection and expectation of 
            the image captures of the top and bottom halves 
            of the notes. The image captures are then
@@ -216,11 +221,11 @@ better results in terms of processing time.
             \begin{figure}[H]
                 \centerline{\includegraphics[width=3in]{t5arch.png}}
                 \vspace{-0.4cm}
-                \caption{T5 model architecture.} 
+                \caption{T5 model architecture \cite{Wang2023}.} 
                 \label{t5architecture}
             \end{figure}
             \vspace{-0.4cm}
-            \indent Figure \ref{t5architecture} shows the 
+            \indent Fig. \ref{t5architecture} shows the 
             layers and components of the T5 model. 
             The important aspect from this is that T5 
             contains a final output layer that allows 
@@ -243,7 +248,7 @@ better results in terms of processing time.
         \end{figure} 
         \vspace{-0.3cm} 
         \indent A sample capture from the procured testing dataset 
-        is shown in Figure \ref{datacollection}. 
+        is shown in Fig. \ref{datacollection}. 
         A total of 70 handwritten lecture notes were collected
         from an undergraduate class on computer networking and 
         cybersecurity. A total of 1800 text lines were extracted by the 
@@ -259,36 +264,139 @@ better results in terms of processing time.
         from students.
 
     \subsection{Testing and Evaluation}
+    
+    \begin{table}[H]
+    \caption{Testing and Evaluation Table for OCR.}
+        \centering
+        \begin{tblr}{
+            colspec={@{}X[1] X[1] X[1] X[1]@{}}, % Makes columns flexible
+            column{1} = {c}, % Align first column to center
+            hlines,          % Adds horizontal lines
+        }
+        & \textbf{Student} & \textbf{Model} & \textbf{WER} \\
+        1 &  &  &  \\
+        ... & ... & ... & ... \\
+        70 &  &  &  \\
+        &  &   &  Average\\  % Replace X, Y, Z with actual values
+        \end{tblr}
+        \label{ocrtable}
+    \end{table}
+    
+    \indent Shown in Table \ref{ocrtable} is the 
+    testing and evaluation table for the OCR. Here, 
+    the transcribed text of the students' handwritten notes 
+    are compared to the model. The WER is computed 
+    between the two texts. The average WER is then
+    computed for the evaluation of the OCR. Mathematically, 
+    the WER is 
 
+    \begin{equation}
+        WER = \frac{S + D + I}{N}
+    \end{equation}
+
+    where $S$ is the number of substitutions, 
+    $D$ is the number of deletions,
+    $I$ is the number of insertions, and
+    $N$ is the number of words in the reference text.
+
+    \begin{table}[H]
+        \caption{Testing and Evaluation Table for AQG.}
+            \centering
+            \begin{tblr}{
+                colspec={@{}X[1] X[1] X[1] X[1] X[1]@{}}, % Makes columns flexible
+                column{1} = {c}, % Align first column to center
+                hlines,          % Adds horizontal lines
+            }
+            & \textbf{Student} & \textbf{Model} & \textbf{ROUGE} & \textbf{BLEU}\\
+            1 &  &  &  & & \\
+            ... & ... & ... & ... & ...\\
+            135 &     &     &     &   \\ 
+            &   &     & Average & Average\\  % Replace X, Y, Z with actual values
+            \end{tblr}
+            \label{aqgtable}
+    \end{table}
+    \indent Shown in Table \ref{aqgtable} is the
+    testing and evaluation table for the AQG. Here, the 
+    top five common keywords from the data collection 
+    are used as the basis by students for the formation of 
+    questions. The model-generated questions are then
+    compared to the student-generated questions. The 
+    ROUGE and BLEU scores are computed for the evaluation
+    of the AQG. Mathematically, the ROUGE score is
+    \begin{equation}
+        ROUGE = \frac{1}{N} \sum_{i=1}^{N} \frac{2 \times (P \times R)}{(P + R)}
+    \end{equation}
+    where $P$ is the precision and $R$ is the recall, 
+    and N is the number of n-grams.  \\ 
+    \indent On the other hand, the BLEU score is
+    defined as
+    \begin{equation}
+        BLEU = \frac{1}{N} \sum_{i=1}^{N} \frac{1}{r} \sum_{i=1}^{r} \min \left( \sum_{i=1}^{r} \text{count}_{\text{clip}}(ngram) \right)
+    \end{equation}
+    where $P$ is the precision, $R$ is the recall, $N$ is the number of notes, $r$ is the number of reference questions, and $\text{count}_{\text{clip}}$ is the count of the clipped n-grams.
 \section{Results and Discussion}
+    \begin{figure}[H]
+        \centerline{\includegraphics[width=3in]{validity.png}}
+        \vspace{-0.4cm}
+        \caption{Pie chart for valid questions versus invalid.} 
+        \label{validity}
+    \end{figure}
+    As shown in Fig. \ref{validity}, 85.1\% of the questions generated out of 
+    the test set were valid in terms of logic, coherence, and 
+    its correlation to the answer. It means that 298 out of 350 questions 
+    were valid. 
+
+    \begin{figure}[H]
+        \centerline{\includegraphics[width=2.5in]{wer.png}}
+        \vspace{-0.4cm}
+        \caption{Histogram for WER and WOER.} 
+        \label{wer}
+    \end{figure}
+    Revealed in Fig. \ref{wer} are the WER and WOER of the system. 
+    The value of 0.40 for the WER is mainly attributed to the 
+    preprocessing of the images, since the system did not take 
+    into account the natural horizontal misalignment from the 
+    notes. Moreover, a lack of fine-tuning on the base handwritten 
+    version of TrOCR may have led to this result. However, a 
+    lower word overlap error rate (24.7\%) showed that the system 
+    is decently capable of capturing the set of keywords within 
+    the notes. This means that the text enhancement from Gemini 
+    was able to correct the errors and still produce proper questions 
+    as revealed by the 85.1\% validity rate.
+
+    \begin{figure}[H]
+        \centerline{\includegraphics[width=2.5in]{eval.png}}
+        \vspace{-0.3cm}
+        \caption{ROUGE scores and BLEU evaluation} 
+        \label{eval}
+    \end{figure}
+
+    As shown in Fig. \ref{eval}, the system was able to achieve 
+    ROUGE scores of 0.358, 0.166, and 0.115 for unigrams to trigrams 
+    respectively. This meant that the system works decently for 
+    the capture of context, but not for sentence structure. As for 
+    the BLEU score of 0.097, this means that there is a very high 
+    lexical variability. This was due to students being observed to 
+    have the tendency of copying the structure of the basis text. 
+    Compared to T5, the questions generated tended to be 
+    very diverse in terms of structure. As such, the questions 
+    generated by the model are not predictable in structure. 
 \section{Conclusion and Recommendations}
+    \indent It was concluded that the system utilizing the T5 and TrOCR 
+    pipeline was capable of performing AQG from handwritten lecture notes
+    with satisfactory validity and relevance, but unpredictable in 
+    lexical structure. \\
+    \indent It is recommended that further research on 
+    this implementation would involve better hardware. This will lead 
+    to the usage of higher paramter count versions of T5 and TrOCR 
+    which will improve the operation of the system. Lastly, it is 
+    recommended that much attention is given to the preprocessing of 
+    the image captures of handwritten notes to improve the word 
+    capture accuracy. 
 
-\section*{Acknowledgment}
 
-The preferred spelling of the word ``acknowledgment'' in America is without 
-an ``e'' after the ``g''. Avoid the stilted expression ``one of us (R. B. 
-G.) thanks $\ldots$''. Instead, try ``R. B. G. thanks$\ldots$''. Put sponsor 
-acknowledgments in the unnumbered footnote on the first page.
+\bibliographystyle{IEEEtran}
+\bibliography{export}
 
-\section*{References}
-
-Please number citations consecutively within brackets \cite{b1}. The 
-sentence punctuation follows the bracket \cite{b2}. Refer simply to the reference 
-number, as in \cite{b3}---do not use ``Ref. \cite{b3}'' or ``reference \cite{b3}'' except at 
-the beginning of a sentence: ``Reference \cite{b3} was the first $\ldots$''
-
-Number footnotes separately in superscripts. Place the actual footnote at 
-the bottom of the column in which it was cited. Do not put footnotes in the 
-abstract or reference list. Use letters for table footnotes.
-
-Unless there are six authors or more give all authors' names; do not use 
-``et al.''. Papers that have not been published, even if they have been 
-submitted for publication, should be cited as ``unpublished'' \cite{b4}. Papers 
-that have been accepted for publication should be cited as ``in press'' \cite{b5}. 
-Capitalize only the first word in a paper title, except for proper nouns and 
-element symbols.
-
-For papers published in translation journals, please give the English 
-citation first, followed by the original foreign-language citation \cite{b6}.
 
 \end{document}

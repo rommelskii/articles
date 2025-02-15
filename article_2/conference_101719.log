@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2025.1.26)  12 FEB 2025 11:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2025.1.26)  15 FEB 2025 10:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -255,27 +255,120 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
-) (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+) (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/tabularray/tabularray.sty (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2024-02-20 L3 programming layer (loader) 
+ (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count289
 \l__pdf_internal_box=\box57
+))
+Package: tabularray 2024-02-16 v2024A Typeset tabulars and arrays with LaTeX3
+\l__tblr_a_int=\count290
+\l__tblr_c_int=\count291
+\l__tblr_r_int=\count292
+\l__tblr_d_dim=\dimen183
+\l__tblr_h_dim=\dimen184
+\l__tblr_o_dim=\dimen185
+\l__tblr_p_dim=\dimen186
+\l__tblr_q_dim=\dimen187
+\l__tblr_r_dim=\dimen188
+\l__tblr_s_dim=\dimen189
+\l__tblr_t_dim=\dimen190
+\l__tblr_v_dim=\dimen191
+\l__tblr_w_dim=\dimen192
+\l__tblr_a_box=\box58
+\l__tblr_b_box=\box59
+\l__tblr_c_box=\box60
+\l__tblr_d_box=\box61
+\g__tblr_table_count_int=\count293
+\c@rownum=\count294
+\c@colnum=\count295
+\c@rowcount=\count296
+\c@colcount=\count297
+\abovesep=\dimen193
+\belowsep=\dimen194
+\leftsep=\dimen195
+\rightsep=\dimen196
+\g_tblr_level_int=\count298
+\g__tblr_data_row_key_count_int=\count299
+\g__tblr_data_column_key_count_int=\count300
+\g__tblr_data_cell_key_count_int=\count301
+\g__tblr_array_int=\count302
+\l__tblr_key_count_int=\count303
+\l__tblr_key_quotient_int=\count304
+\l__tblr_key_quotient_two_int=\count305
+\l__tblr_key_remainder_int=\count306
+\g__tblr_data_str_value_count_int=\count307
+\rulewidth=\dimen197
+\l__tblr_strut_dp_dim=\dimen198
+\l__tblr_strut_ht_dim=\dimen199
+\g__tblr_cell_wd_dim=\dimen256
+\g__tblr_cell_ht_dim=\dimen257
+\g__tblr_cell_head_dim=\dimen258
+\g__tblr_cell_foot_dim=\dimen259
+\l__column_target_dim=\dimen260
+\l__tblr_caption_box=\box62
+\l__tblr_caption_left_box=\box63
+\l__tblr_row_head_box=\box64
+\l__tblr_row_foot_box=\box65
+\l__tblr_row_head_foot_dim=\dimen261
+\tablewidth=\dimen262
+\l__tblr_table_firsthead_box=\box66
+\l__tblr_table_middlehead_box=\box67
+\l__tblr_table_lasthead_box=\box68
+\l__tblr_table_firstfoot_box=\box69
+\l__tblr_table_middlefoot_box=\box70
+\l__tblr_table_lastfoot_box=\box71
+\l__tblr_remain_height_dim=\dimen263
+\l__tblr_long_from_int=\count308
+\l__tblr_long_to_int=\count309
+\l__tblr_curr_i_int=\count310
+\l__tblr_prev_i_int=\count311
+\l__tblr_table_page_int=\count312
+\l__tblr_table_head_box=\box72
+\l__tblr_table_foot_box=\box73
+\l__tblr_table_head_foot_dim=\dimen264
+\l__tblr_table_head_body_foot_dim=\dimen265
+\l__tblr_table_box=\box74
+\l__tblr_table_hlines_box=\box75
+\l__tblr_hline_box=\box76
+\l__tblr_row_box=\box77
+\l__tblr_col_o_wd_dim=\dimen266
+\l__tblr_col_b_wd_dim=\dimen267
+\l__tblr_hline_leftskip_dim=\dimen268
+\l__tblr_hline_rightskip_dim=\dimen269
+\l__tblr_row_ht_dim=\dimen270
+\l__tblr_row_dp_dim=\dimen271
+\l__tblr_row_abovesep_dim=\dimen272
+\l__tblr_row_belowsep_dim=\dimen273
+\l__tblr_row_vlines_box=\box78
+\l__tblr_vline_box=\box79
+\l__tblr_cell_box=\box80
+\l__row_upper_dim=\dimen274
+\l__row_lower_dim=\dimen275
+\l__row_vpace_dim=\dimen276
+\l__tblr_vline_aboveskip_dim=\dimen277
+\l__tblr_vline_belowskip_dim=\dimen278
+\l__tblr_cell_wd_dim=\dimen279
+\l__tblr_cell_ht_dim=\dimen280
+\l__tblr_diag_box=\box81
 ) (./conference_101719.aux)
 \openout1 = `conference_101719.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
 
 -- Lines per column: 55 (approximate, difference = 8.63977pt).
 *geometry* driver: auto-detecting
@@ -314,22 +407,26 @@ LaTeX Font Info:    ... okay on input line 14.
 
 (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count290
-\scratchdimen=\dimen183
-\scratchbox=\box58
-\nofMPsegments=\count291
-\nofMParguments=\count292
+\scratchcounter=\count313
+\scratchdimen=\dimen281
+\scratchbox=\box82
+\nofMPsegments=\count314
+\nofMParguments=\count315
 \everyMPshowfont=\toks27
-\MPscratchCnt=\count293
-\MPscratchDim=\dimen184
-\MPnumerator=\count294
-\makeMPintoPDFobject=\count295
+\MPscratchCnt=\count316
+\MPscratchDim=\dimen282
+\MPnumerator=\count317
+\makeMPintoPDFobject=\count318
 \everyMPtoPDFconversion=\toks28
 ) (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+)) (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/ninecolors/ninecolors.sty
+Package: ninecolors 2022-02-13 v2022D Select colors with proper color contrast
+ (/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2024-02-18 L3 Experimental document command parser
 ))
 LaTeX Font Info:    Calculating math sizes for size <11> on input line 28.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 28.
@@ -355,20 +452,20 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <blockdiag.png, id=11, 1195.8276pt x 476.0184pt>
 File: blockdiag.png Graphic file (type png)
 <use blockdiag.png>
-Package pdftex.def Info: blockdiag.png  used on input line 152.
+Package pdftex.def Info: blockdiag.png  used on input line 157.
 (pdftex.def)             Requested size: 216.81pt x 86.30426pt.
 <experimental.png, id=13, 568.1225pt x 327.2225pt>
 File: experimental.png Graphic file (type png)
 <use experimental.png>
-Package pdftex.def Info: experimental.png  used on input line 173.
+Package pdftex.def Info: experimental.png  used on input line 178.
 (pdftex.def)             Requested size: 216.81pt x 124.87509pt.
 <flowchart.png, id=14, 1128.6165pt x 979.0176pt>
 File: flowchart.png Graphic file (type png)
 <use flowchart.png>
-Package pdftex.def Info: flowchart.png  used on input line 191.
+Package pdftex.def Info: flowchart.png  used on input line 196.
 (pdftex.def)             Requested size: 216.81pt x 188.06186pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 189--195
+Underfull \hbox (badness 10000) in paragraph at lines 194--200
 
  []
 
@@ -376,44 +473,52 @@ Underfull \hbox (badness 10000) in paragraph at lines 189--195
 <t5arch.png, id=20, 712.8231pt x 491.9178pt>
 File: t5arch.png Graphic file (type png)
 <use t5arch.png>
-Package pdftex.def Info: t5arch.png  used on input line 217.
+Package pdftex.def Info: t5arch.png  used on input line 222.
 (pdftex.def)             Requested size: 216.81pt x 149.61812pt.
 <datacollection.png, id=21, 1379.6343pt x 771.1209pt>
 File: datacollection.png Graphic file (type png)
 <use datacollection.png>
-Package pdftex.def Info: datacollection.png  used on input line 239.
+Package pdftex.def Info: datacollection.png  used on input line 244.
 (pdftex.def)             Requested size: 216.81pt x 121.18155pt.
 
 Underfull \vbox (badness 1708) has occurred while \output is active []
 
+> Step: init table outer spec.
+> Step: parse table options.
+> Step: split table.
+> Step: init table inner spec.
+> Step: parse table inner spec.
+> Step: execute table commands.
+> Step: calculate cell and line sizes.
+> Step: build the whole table.
+> Step: init table outer spec.
+> Step: parse table options.
+> Step: split table.
+> Step: init table inner spec.
+> Step: parse table inner spec.
+> Step: execute table commands.
+> Step: calculate cell and line sizes.
+> Step: build the whole table.
 
+Underfull \vbox (badness 1303) has occurred while \output is active []
 
-LaTeX Warning: Citation `b1' on page 3 undefined on input line 275.
-
-
-LaTeX Warning: Citation `b2' on page 3 undefined on input line 276.
-
-
-LaTeX Warning: Citation `b3' on page 3 undefined on input line 277.
-
-
-LaTeX Warning: Citation `b3' on page 3 undefined on input line 277.
-
-
-LaTeX Warning: Citation `b3' on page 3 undefined on input line 277.
-
-
-LaTeX Warning: Citation `b3' on page 3 undefined on input line 278.
-
-
-LaTeX Warning: Citation `b4' on page 3 undefined on input line 286.
-
-
-LaTeX Warning: Citation `b5' on page 3 undefined on input line 287.
-
-
-LaTeX Warning: Citation `b6' on page 3 undefined on input line 292.
-
+ [3 <./flowchart.png> <./t5arch.png> <./datacollection.png>]
+<validity.png, id=30, 543.4704pt x 562.2606pt>
+File: validity.png Graphic file (type png)
+<use validity.png>
+Package pdftex.def Info: validity.png  used on input line 339.
+(pdftex.def)             Requested size: 216.81pt x 224.2997pt.
+<wer.png, id=31, 686.8059pt x 546.6021pt>
+File: wer.png Graphic file (type png)
+<use wer.png>
+Package pdftex.def Info: wer.png  used on input line 350.
+(pdftex.def)             Requested size: 180.67499pt x 143.78961pt.
+<eval.png, id=32, 686.8059pt x 546.6021pt>
+File: eval.png Graphic file (type png)
+<use eval.png>
+Package pdftex.def Info: eval.png  used on input line 368.
+(pdftex.def)             Requested size: 180.67499pt x 143.78961pt.
+ [4 <./validity.png> <./wer.png> <./eval.png>] (./conference_101719.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -425,31 +530,25 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[3 <./flowchart.png> <./t5arch.png> <./datacollection.png>] [4
-
-] (./conference_101719.aux)
+[5] (./conference_101719.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 4880 strings out of 474116
- 77963 string characters out of 5732613
- 1945187 words of memory out of 5000000
- 27188 multiletter control sequences out of 15000+600000
- 597167 words of font info for 113 fonts, out of 8000000 for 9000
+ 7399 strings out of 474116
+ 141570 string characters out of 5732613
+ 1956187 words of memory out of 5000000
+ 29685 multiletter control sequences out of 15000+600000
+ 604813 words of font info for 131 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,11n,65p,271b,360s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on conference_101719.pdf (4 pages, 8580053 bytes).
+ 65i,11n,98p,518b,565s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on conference_101719.pdf (5 pages, 9444791 bytes).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
- 30 compressed objects within 1 object stream
+ 93 PDF objects out of 1000 (max. 8388607)
+ 47 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
