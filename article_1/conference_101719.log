@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2025.1.26)  13 FEB 2025 20:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2025.1.26)  24 FEB 2025 10:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -433,24 +433,39 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <blockdiag.png, id=10, 1195.8276pt x 520.344pt>
 File: blockdiag.png Graphic file (type png)
 <use blockdiag.png>
-Package pdftex.def Info: blockdiag.png  used on input line 137.
+Package pdftex.def Info: blockdiag.png  used on input line 138.
 (pdftex.def)             Requested size: 258.0pt x 112.26082pt.
 <experimental.png, id=12, 568.1225pt x 327.2225pt>
 File: experimental.png Graphic file (type png)
 <use experimental.png>
-Package pdftex.def Info: experimental.png  used on input line 153.
+Package pdftex.def Info: experimental.png  used on input line 169.
 (pdftex.def)             Requested size: 216.81pt x 124.87509pt.
 <pipeline.png, id=13, 1243.044pt x 317.5062pt>
 File: pipeline.png Graphic file (type png)
 <use pipeline.png>
-Package pdftex.def Info: pipeline.png  used on input line 174.
-(pdftex.def)             Requested size: 216.81pt x 55.37546pt.
-<datacollection.png, id=14, 1379.6343pt x 771.1209pt>
+Package pdftex.def Info: pipeline.png  used on input line 191.
+(pdftex.def)             Requested size: 252.94499pt x 64.6047pt.
+<ocr_process.png, id=14, 1450.4589pt x 512.3943pt>
+File: ocr_process.png Graphic file (type png)
+<use ocr_process.png>
+Package pdftex.def Info: ocr_process.png  used on input line 211.
+(pdftex.def)             Requested size: 252.94499pt x 89.34978pt.
+ [2 <./blockdiag.png> <./experimental.png> <./pipeline.png> <./ocr_process.png>]
+<trocr_process.png, id=24, 2091.99944pt x 351.714pt>
+File: trocr_process.png Graphic file (type png)
+<use trocr_process.png>
+Package pdftex.def Info: trocr_process.png  used on input line 233.
+(pdftex.def)             Requested size: 252.94499pt x 42.52586pt.
+<aqg_process.png, id=25, 958.782pt x 175.857pt>
+File: aqg_process.png Graphic file (type png)
+<use aqg_process.png>
+Package pdftex.def Info: aqg_process.png  used on input line 247.
+(pdftex.def)             Requested size: 252.94499pt x 46.39258pt.
+<datacollection.png, id=26, 1379.6343pt x 771.1209pt>
 File: datacollection.png Graphic file (type png)
 <use datacollection.png>
-Package pdftex.def Info: datacollection.png  used on input line 204.
+Package pdftex.def Info: datacollection.png  used on input line 274.
 (pdftex.def)             Requested size: 216.81pt x 121.18155pt.
- [2 <./blockdiag.png> <./experimental.png> <./pipeline.png> <./datacollection.png>]
 > Step: init table outer spec.
 > Step: parse table options.
 > Step: split table.
@@ -467,23 +482,26 @@ Package pdftex.def Info: datacollection.png  used on input line 204.
 > Step: execute table commands.
 > Step: calculate cell and line sizes.
 > Step: build the whole table.
-<wer.png, id=26, 686.8059pt x 546.6021pt>
+
+Underfull \vbox (badness 1253) has occurred while \output is active []
+
+ [3 <./trocr_process.png> <./aqg_process.png> <./datacollection.png>]
+<wer.png, id=36, 686.8059pt x 546.6021pt>
 File: wer.png Graphic file (type png)
 <use wer.png>
-Package pdftex.def Info: wer.png  used on input line 282.
+Package pdftex.def Info: wer.png  used on input line 352.
 (pdftex.def)             Requested size: 180.67499pt x 143.78961pt.
-<validity.png, id=27, 763.1712pt x 477.4638pt>
+<validity.png, id=37, 763.1712pt x 477.4638pt>
 File: validity.png Graphic file (type png)
 <use validity.png>
-Package pdftex.def Info: validity.png  used on input line 298.
+Package pdftex.def Info: validity.png  used on input line 368.
 (pdftex.def)             Requested size: 216.81pt x 135.64146pt.
- [3 <./wer.png> <./validity.png>]
-<eval.png, id=36, 343.2825pt x 299.6796pt>
+<eval.png, id=38, 343.2825pt x 299.6796pt>
 File: eval.png Graphic file (type png)
 <use eval.png>
-Package pdftex.def Info: eval.png  used on input line 314.
+Package pdftex.def Info: eval.png  used on input line 385.
 (pdftex.def)             Requested size: 180.67499pt x 157.72281pt.
- (./conference_101719.bbl)
+ [4 <./wer.png> <./validity.png> <./eval.png>] (./conference_101719.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -495,25 +513,25 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[4 <./eval.png>] (./conference_101719.aux)
+[5] (./conference_101719.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 7451 strings out of 474116
- 143802 string characters out of 5732613
- 1966187 words of memory out of 5000000
- 29731 multiletter control sequences out of 15000+600000
+ 7475 strings out of 474116
+ 144316 string characters out of 5732613
+ 1958187 words of memory out of 5000000
+ 29755 multiletter control sequences out of 15000+600000
  606443 words of font info for 132 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  65i,11n,98p,521b,585s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on conference_101719.pdf (4 pages, 7093302 bytes).
+Output written on conference_101719.pdf (5 pages, 7550912 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+ 97 PDF objects out of 1000 (max. 8388607)
+ 47 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

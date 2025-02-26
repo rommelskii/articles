@@ -1,0 +1,27 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\begin{document}
+
+Determine the length-8 sequence from its DFT, $X(k) = \{6, 2-j, -3, 2+j, 5, 4-3j, 4, 4+3j\}$
+
+\[
+\text{IDFT: } x(n) = X_N = \frac{1}{N} [W_N^*] x_N
+\]
+
+\[
+[W_8^*] = 
+\begin{bmatrix}
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+0.707-j0.707 & -j & -0.707-j0.707 & -1 & -0.707+j0.707 & j & 0.707+j0.707 & 1 \\
+-1 & -j & 1 & j & -1 & -j & 1 & j \\
+-0.707-j0.707 & -1 & 0.707-j0.707 & j & 0.707+j0.707 & 1 & -0.707+j0.707 & -j \\
+1 & -1 & 1 & -1 & 1 & -1 & 1 & -1 \\
+-0.707+j0.707 & -1 & 0.707+j0.707 & -j & 0.707-j0.707 & 1 & -0.707-j0.707 & j \\
+-1 & j & 1 & -j & -1 & j & 1 & -j \\
+0.707+j0.707 & -j & -0.707+j0.707 & -1 & -0.707-j0.707 & j & 0.707-j0.707 & 1
+\end{bmatrix}
+\]
+
+\end{document}

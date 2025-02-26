@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex conference_101719"] 1739450390.49266 "conference_101719.aux" "conference_101719.bbl" "conference_101719" 1739451167.04589 0
+["bibtex conference_101719"] 1740365470.11876 "conference_101719.aux" "conference_101719.bbl" "conference_101719" 1740365477.54132 0
   "./export.bib" 1739325578.94646 23967 9d6ad08a38114f35e1ef177fb6ab0a99 ""
   "/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/bibtex/bst/ieeetran/IEEEtran.bst" 1710106625 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "conference_101719.aux" 1739451166.85927 3989 da8e4e73eda5069fd5d667bc8440cfea "pdflatex"
+  "conference_101719.aux" 1740365477.35749 4496 d9857427ee410dee5ee4332e4653b667 "pdflatex"
   (generated)
   "conference_101719.bbl"
   "conference_101719.blg"
   (rewritten before read)
-["pdflatex"] 1739451160.81194 "/Users/mels/articles/article_1/conference_101719.tex" "conference_101719.pdf" "conference_101719" 1739451167.046 0
-  "/Users/mels/articles/article_1/conference_101719.tex" 1739451157.48911 17095 781f8bb338cb2ec5b974494011e501ee ""
+["pdflatex"] 1740365470.18537 "/Users/mels/articles/article_1/conference_101719.tex" "conference_101719.pdf" "conference_101719" 1740365477.54142 0
+  "/Users/mels/articles/article_1/conference_101719.tex" 1740365465.36472 20485 cc53040fca34e5692da790af2e50b385 ""
   "/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/enc/dvips/base/8r.enc" 1710106625 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/map/fontname/texfonts.map" 1710106625 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1710106625 5472554 f7861620179a71a79d4bd86251f559d0 ""
@@ -95,14 +95,17 @@
   "/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-dist/web2c/texmf.cnf" 1710106625 41652 e14926ab86fde7902cad99d9eeaa5ca5 ""
   "/opt/homebrew/Cellar/texlive/20240312_3/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1710106625 8221850 cdd0f59d64bf272578daf4037881baee ""
   "IEEEtran.cls" 1739120471.68816 288304 b67b6fc6c2abb39f9b461923f5199343 ""
+  "aqg_process.png" 1740112652.4705 73078 d3b03d0dccf0e935b004647156543ba6 ""
   "blockdiag.png" 1739145157.36507 183491 93a7dedc8e8d2f03adbc045d0bbda6cc ""
-  "conference_101719.aux" 1739451166.85927 3989 da8e4e73eda5069fd5d667bc8440cfea "pdflatex"
-  "conference_101719.bbl" 1739450390.55718 6873 508382951ee0ac8e44cace13401a72a3 "bibtex conference_101719"
-  "conference_101719.tex" 1739451157.48911 17095 781f8bb338cb2ec5b974494011e501ee ""
+  "conference_101719.aux" 1740365477.35749 4496 d9857427ee410dee5ee4332e4653b667 "pdflatex"
+  "conference_101719.bbl" 1740365470.1844 6873 508382951ee0ac8e44cace13401a72a3 "bibtex conference_101719"
+  "conference_101719.tex" 1740365465.36472 20485 cc53040fca34e5692da790af2e50b385 ""
   "datacollection.png" 1739152537.50955 5754343 b7a14471f6bf8fdd5839077282d7bbb1 ""
   "eval.png" 1739325578.9456 149579 a361a4432ef7b8428e40c6d83c645613 ""
   "experimental.png" 1739149501.69228 851948 67c1bd3c434c41c707a4e1f37a350cfd ""
+  "ocr_process.png" 1740052427.13715 232561 41422ba066df9fbbf8e927e494900746 ""
   "pipeline.png" 1739147042.99362 105495 53e4cf91896989361340fb89fe2b985f ""
+  "trocr_process.png" 1740053505.7119 290887 48cb531777c8bc9b1606322a2d7c7fda ""
   "validity.png" 1739450784.34779 228092 1434954ad7d260c6a449fdf45ffc1506 ""
   "wer.png" 1739156135.98492 293969 b41c89c018e532801b8556b1dcc424ed ""
   (generated)

@@ -15,7 +15,7 @@
 \begin{document}
 
 \title{Automatic Question Generation from Handwritten Lecture Notes on
-KeyBERT-indexed T5-TrOCR Pipeline}
+KeyBERT-indexed T5-TrOCR Pipeline Using BERTscore Evaluation}
 \author{\IEEEauthorblockN{Rommel John Ronduen\textsuperscript{1}, Jan Adrian Manzanero\textsuperscript{2}, Analyn Yumang\textsuperscript{3}}
 \IEEEauthorblockA{\textit{School of Electrical, Electronics, and Computer Engineering} \\
 \textit{Mapua University}\\
@@ -28,112 +28,107 @@ Manila, Philippines 1002\\
 \maketitle
 
 \begin{abstract}
-In this research, a system capable of performing optical character recognition
-(OCR) on handwritten lecture notes and consequently using the extracted text for
-automatic question genertion (AQG) was conceived. The system utilized the Text-to-Text
-Transformer (T5) for AQG and the Transformer-based Optical Character Recognition 
-model (TrOCR) for OCR. The base version T5 was fine-tuned
-using the SQuADv1.1 dataset while the pre-trained handwritten base version for
-TrOCR was used. The system was evaluated using the word error rate (WER) for
-OCR evaluation, while the Recall-Oriented Understudy for Gisting Evaluation (ROUGE)
-and Bilingual Language Understanding Evaluation (BLEU) were used for AQG evaluation. 
-The system achieved an 85.1\% question validity rate with a WER of 0.40 and ROUGE-1 
-score of 0.358.
+This research improves on an automatic question generation (AQG) system 
+that utilizes optical character recognition (OCR) from handwritten 
+lecture notes as a context source for generating questions. Such system 
+utilizes the Text-to-Text transformer (T5) for AQG and Transformer-based 
+Optical Character Recognition (TrOCR) for the OCR with the use of 
+the Gemini 1.5 Flash large language model (LLM) for text 
+correction and enhancement. A version of the Bidirectional Encoder 
+Representations from Transformers (BERT) called KeyBERT was used for 
+the extraction of relevant phrases and keywords from the extracted 
+information as bases for question generation. The system utilizes 
+a Raspberry Pi 5 equipped with a Logitech C922 web camera and
+touchscreen liquid crystal display (LCD). A web application was 
+developed using Angular and Flask for prototyping in allowing for 
+the AQG process for experimentation. The system achieved an 
+85.1\% question validity while achieving an average 64.1\% precision, 
+59.77\% recall, and 61.67\% F1 score using BERTscore semantic 
+analysis versus student-made questions on undergraduate level computer networks and 
+cybersecurity. This system produces questions of decent context capture 
+but with recommended improvements on hardware, model parameter size, and 
+image preprocessing techniques.
 \end{abstract}
-
 \begin{IEEEkeywords}
-Large Language Model, Optical Character Recognition,
-Automatic Question Generation, Handwritten Lecture Notes, Raspberry Pi
+Automatic Question Generation, Optical Character Recognition,
+BERT, T5, Raspberry Pi
 \end{IEEEkeywords}
-
+%BEGIN INTRODUCTION
 \section{Introduction}
 Handwritten lecture notes are still widely used in educational institutions.
 Since the advent of artificial intelligence (AI), education has become
 the primary focus of AI research. AI has been used to automate several processes,
 and one which is the generation of learning materials such as questions in the
 form of quizzes. Literature defines automatic question generation (AQG) as the
-process of generating questions from a given text. 
-
-Despite existing implementations of AQG, no attempt has been given for utilizing 
-handwritten lecture notes as a source for AQG. There have been several
-approaches to AQG, such as rule-based, template-based, and neural-based,
-but none of these approaches have been applied to handwritten lecture notes as 
-a direct source for AQG through image capturing and OCR. It is noted by \cite{Arbaaeen2020}
-AQG is defined by the methods used to generate questions.
-The AQG system is composed of three main components: the context extraction and
-parsing, the question generation, and the question validation. 
-Moreover, AQG implementations tend to use large language models (LLMs) 
-and other forms of neural networks for use cases such as 
-filtering \cite{Fernandez2023} AQG systems differ in the method of extracting information and also 
-the type of information that is being extracted. In fact, it was noted by them 
-that it is suggested that AQG implementations utilize other forms of media 
-sources for context bases. For instance, \cite{Gaur2023} conceived 
-of an AQG system that utilizes programming source code as the context for question
-generation based on selected keywords from the code snippets. However, these 
-code snippets were assumed to be transcribed as an input to the system and not 
-from the handwritten medium. Another use case
-through \cite{Ou2022} involved the use of recorded videos as a source for AQG 
-that led to question-answer pairs through the 
-Bidirection and Auto-Regressive Transformer (BART) model for
-the search of sentences in the text. They utilized an algorithm of indexing or 
-searching through the extracted context for specific question generations, which 
-will be explained further in the succeeding text. Despite this, the researchers utilized 
-a recorded video as a source. On the other hand, \cite{Moron2021}
-allowed for an implementation of AQG through the use of named entity recognition 
-(NER) and semantic rules for question generation in aiding the learning of 
-English that led to the generation of questions that primarily answered the
-questions of "what" and "who". However, the AQG implementation relied on the 
-manual input of the user in text boxes for the context. In total, AQG systems 
-are capable of generating questions from a given context, but no system has been
-developed to generate questions from handwritten lecture notes.
-There exists a variety in the algorithms used for AQG, such as the use of 
-the BART model for question generation through the use of a search algorithm and 
-the use of NER and semantic rules for question generation. An example includes 
-the use of treebanks for providing for inferences \cite{Mesina2020}. However, one such study
-by \cite{Tsai2021} utilized the use of the Text-to-Text Transformer (T5) model for AQG and
-the evaluation utilizing the Recall-Oriented Understudy for Gisting Evaluation (ROUGE)
-and the Bilingual Evaluation Understudy (BLEU) metrics. 
-The Stanford Question Answering Dataset (SQuAD) was used for the 
-fine-tuning of the T5 model that led to satisfactory similarity of model-generated
-questions to the ground truth questions with a ROUGE-L score of 0.613. However,
-they noted a limitation as the model had a BLEU score of 0.567 due to the processes
-of the T5 model mixing the syntax and form of the context used for AQG. Due to 
-the capability of the T5 model to generate questions from a given context while 
-being fine-tuned to a specific dataset, it was chosen as the model for AQG in this 
-research. In bridging the gap for AQG from handwritten lecture notes,
-the Transformer-based Optical Character Recognition (TrOCR) model was used for the optical character recognition (OCR) of the 
-handwritten lecture notes. Starting first with OCR, it is often associated with 
-convolutional neural networks (CNN) and recurrent neural networks (RNN) \cite{Gallenero2023}. As noted 
-by \cite{Calimag2023} the use of CNNs for OCR is often used for the detection of text
-in images and even objects such as that of the implementation for the detection 
-of the different types of mushrooms \cite{Sutayco2024}. CNNs have also been used for 
-recognizing text through the transformation of shorthand terminologies to 
-English text \cite{Padilla2020}. In fact, it was shown by \cite{Ligsay2022} that it was 
-possible to recognize text in Baybayin (a Filipino lettering system) 
-using CNNs. Another involved the identification of expiry dates on 
-canned goods \cite{Manlises2024}. In terms of evaluation, these CNNs are often evaluated 
-using confusion matrices. These confusion matrices are used to evaluate the
-performance of the OCR model in terms of the true positive, true negative, false
-positive, and false negative values \cite{Villaverde2023}. However, a transformer-based
-approach has been used for OCR, such as the TrOCR model \cite{Li2021} which has been used in recognition of text from 
-scanned receipts \cite{Zhang2023} and even in the recognition of text from images of 
-Arabic text \cite{Mortadi2023}. The model has been exemplary over the use of CNNs by its 
-encoder-decoder framework with pre-trained weights for the recognition of text.
-\\
-\indent In lieu of the gap on AQG from utilizing handwritten lecture notes, 
-the general objective of this research to develop a system of allowing for
-automatic question generation from handwritten lecture notes on KeyBERT-indexed 
-T5-TrOCR pipeline with Gemini context correction. The specific objectives of
-this research to utilize a fine-tuned T5 model for AQG on SQuADv1.1 while 
-using KeyBERT for indexing the context of the handwritten lecture notes; to 
-utilize the base handwritten TrOCR model for the OCR of the handwritten lecture;
-to evaluate the system using the word error rate (WER) for OCR evaluation and
-the ROUGE and BLEU metrics for AQG evaluation; and to utilize a Raspberry Pi 5
-within a constructed enclosure with proper illumination for the 
-facilitation and procurement of the system processes, a web camera for image
-capture, and a touchscreen monitor for the display of the generated questions.
-\\ 
-\indent This research is mainly limited by the consideration of only 
+process of generating questions from a given text. \\
+\indent No AQG implementation involved the process of optical character
+recognition (OCR) for the extraction of text content from handwritten lecture 
+notes with semantic evaluation. For instance, \cite{Gaur2023} provided 
+AQG from programming source code where a user interface allows for user 
+text input and shows the generated questions. In a correlational study of AQG 
+to student learning \cite{Tsai2021}, an AQG implementation used existing text files with 
+the Bidirectional Encoder Representations from Transformers (BERT) 
+for keyword extraction, and the T5 model for the generation of questions.
+Another AQG implementation utilized video media \cite{Ou2022} where audio recognition led 
+to transcript generation that was used for AQG through the Bidirectional 
+and Auto-Regressive Transformer (BART). In addressing the lack of OCR 
+in existing AQG implementations, there are types of models that can be 
+used which are founded by convolutional neural networks 
+(CNNs). CNNs can be used for general classification \cite{Manlises2024}
+\cite{Calimag2023}. For instance, 
+MobileNetv2 and VGG-16 are types of CNNs that can classify 
+medicinal mushrooms \cite{Sutayco2023}. These CNNs consist of 
+different layers that perform transformations from the input image 
+that leads to extraction of features used for inferencing \cite{Estrella2024}
+\cite{Wata2023}. In evaluating CNNs, confusion matrices provide an illustration and computation 
+of accuracy \cite{Bacalla2023} \cite{Baguisi2024}. OCR can be made possible
+through CNNs by means of proper image capture. For instance, Baybayin 
+characters were properly recognized \cite{Ligsay2022}. However, 
+OCR technology has advanced to the point where transformers are now used 
+through the Transformer-based Optical Character Recognition (TrOCR) model. 
+This is a model utilizes an encoder-decoder framework in parsing through 
+images of text lines and producing corresponding strings \cite{Li2021}. 
+Due to its pre-trained availability and seamless implementation to 
+Python, this model was chosen in this research. In performing question
+generation, the researchers realized BERT and T5. With BERT, 
+the model comes pre-trained that can be utilized in text classification
+and indexing \cite{Fernandez2023} \cite{Mingua2021}. 
+BERT comes pre-trained, meaning it is 
+immediately capable of extracting semantic features from 
+text for inferencing \cite{Liu2023}. Due to the fine-tuning 
+offered by BERT, many versions of BERT have been realized 
+that serve different specialized purposes \cite{Patra2024}. 
+KeyBERT is a variant of BERT that was fine-tuned for extracting 
+relevant words and phrases in a paragraph through cosine 
+similarity of inferred candidate structures in the text. 
+KeyBERT has been used in an implementation of AQG \cite{Talupuri2024}
+in producing multiple-choice questions where the choices are 
+indexed by KeyBERT. Apart from generative purposes, BERT can be 
+used for evaluation through BERTscore semantic analysis. 
+Since BERT can be used to understand the meaning between a reference 
+and generated text result, BERTscore can infer the similarity 
+among sentences and provide recall and precision metrics based on
+the meaning of the sentences \cite{Zhang2019} which $n$-gram overlap 
+methods cannot realize. In total, this research addresses 
+the lack of OCR in AQG implementations by means of TrOCR and 
+Gemini 1.5 Flash for text enhancement for 
+text extraction from handwritten lecture notes while utilizing 
+T5 and KeyBERT for AQG with semantic evaluation through 
+BERTscore.\\
+\indent The general objective of this research is to allow AQG from 
+handwritten lecture notes on a KeyBERT-indexed T5-TrOCR algorithm pipeline 
+evaluated through BERTscore semantic analysis. More specifically, 
+this research aims to utilize KeyBERT indexing for extracting 
+relevant keywords and phrases coming from the extracted text 
+through TrOCR and Gemini 1.5 Flash as basis for AQG through the base model T5 fine-tuned 
+on the Stanford Question Answering Dataset (SQuADv1.1). 
+Moreover, this research aims to utilize a Raspberry Pi 5 on the 8 gigabyte 
+memory version alongside a Logitech C922 web camera and Waveshare touchscreen 
+LCD in facilitating the necessary inputs and outputs for the system through
+a constructed enclosure with proper lighting. Lastly, this research 
+aims to evaluate the quality of AQG by means of KeyBERT semantic analysis 
+and the question validity rate through manual analysis. \\ 
+\indent This research is limited by the consideration of only 
 single-column, diagram and equation free, and English handwritten lecture notes 
 of no erasures on strictly letter-sized plain sheet paper.
 Moreover, the system is confined to the 
@@ -142,11 +137,9 @@ also utilizing the SQuADv1.1 dataset for the fine-tuning. It is also important
 to note that the system is limited to the facilitation of the processes in 
 the hardware of the 8-gigabyte version of the Raspberry Pi 5. The use of 
 a higher parameter count for the T5 and TrOCR models and the use of a different 
-dataset for fine-tuning may allow for differing results. Moreover, the 
+dataset for fine-tuning may allow for differing results. Lastly, the 
 utilization of a different hardware setup may also lead to alternative, if not, 
 better results in terms of processing time. 
-
-
 %BEGIN II
 \section{Materials and Methods}
     \subsection{Hardware Development}
@@ -154,12 +147,13 @@ better results in terms of processing time.
             \hfill \\
             \vspace{-0.6cm}
             \begin{figure}[H]
-                \centerline{\includegraphics[width=3in]{blockdiag.png}}
+                \centerline{\includegraphics[width=3.0in]{blockdiag.png}}
                 \vspace{-0.3cm}
                 \caption{System block diagram.} 
                 \label{blockdiagram}
             \end{figure} 
             \vspace{-0.4cm}
+            \newpage
             \indent The system block diagram is shown in Fig. 
             \ref{blockdiagram}. The system is composed of a 
             Raspberry Pi 5, a web camera, and a 
@@ -175,7 +169,7 @@ better results in terms of processing time.
             \hfill \\
             \vspace{-0.6cm}
             \begin{figure}[H]
-                \centerline{\includegraphics[width=3in]{experimental.png}}
+                \centerline{\includegraphics[width=3.6in]{experimental.png}}
                 \vspace{-0.3cm}
                 \caption{Experimental setup.} 
                 \label{experimental}
@@ -191,45 +185,33 @@ better results in terms of processing time.
             processes.
     \subsection{Software Development}
         \subsubsection{System Flowchart}
-            \hfill \\
+            \hfill 
             \begin{figure}[H]
-                \centerline{\includegraphics[width=3in]{flowchart.png}}
+                \centerline{\includegraphics[width=3.6in]{flowchart.png}}
                 \vspace{-0.4cm}
                 \caption{System flowchart.} 
                 \label{flowchart}
             \end{figure}
             \indent The system flowchart is shown in 
            Fig. \ref{flowchart}. The system 
-           starts with the collection and expectation of 
+           starts by collecting
            the image captures of the top and bottom halves 
            of the notes. The image captures are then
            combined and undergone a series of image 
-           transformations that extracts the text lines. 
-           These text lines are inputted to the TrOCR for 
+           transformations that extracted the text lines. 
+           These text lines were inputted to the TrOCR for 
            inferencing and the extracted text is then
            inputted to the T5 for AQG. The generated
            questions are formatted to a portable document
               format (PDF) and uploaded to Google Drive 
-            where a QR is generated for the user to download 
-            the PDF on their device. JSON payload is then sent 
+            where a quick response (QR) code is generated for the user to download 
+            the PDF on their device. A JavaScript 
+            Object Notation (JSON) payload is then sent 
             to the front end of the system for the 
             notification on the touchscreen display.
         \vspace{0.4cm}
         \subsubsection{T5 AQG}
-            \hfill \\
-            \vspace{-0.5cm}
-            \begin{figure}[H]
-                \centerline{\includegraphics[width=3in]{t5arch.png}}
-                \vspace{-0.4cm}
-                \caption{T5 model architecture \cite{Wang2023}.} 
-                \label{t5architecture}
-            \end{figure}
-            \vspace{-0.4cm}
-            \indent Fig. \ref{t5architecture} shows the 
-            layers and components of the T5 model. 
-            The important aspect from this is that T5 
-            contains a final output layer that allows 
-            for fine-tuning. \\ 
+        \hfill \\
             \indent In this research, T5 was fine-tuned 
             to the SQuADv1.1 dataset. The input features 
             considered were the context and the chosen 
@@ -251,149 +233,152 @@ better results in terms of processing time.
         is shown in Fig. \ref{datacollection}. 
         A total of 70 handwritten lecture notes were collected
         from an undergraduate class on computer networking and 
-        cybersecurity. A total of 1800 text lines were extracted by the 
-        system. These text lines were manually transcribed for reference.
-        \\
-        \indent From the top five keywords extracted from the handwritten notes
-        (MAC, ethernet, address, data, frame), 
-        a class of 27 students in the same course 
-        were asked to generate questions from those top keywords. A 
-        context was given to the students as a summary from the 
-        notes. As such, 135 questions were collected for the comparison 
-        between the model-generated questions versus the ones 
-        from students.
-
+        cybersecurity. These notes were inputted to the system 
+        which will result in the generation of 350 questions 
+        for validity testing. \\ 
+        \indent Apart from the notes, the researchers collected 
+        questions from students based on a summary discussion that 
+        contains the top five most common keywords 
+        (MAC, address, ethernet, data, frame) in the notes 
+        of the students. In a class of 27 students, each 
+        were asked to formulate questions that answer the five 
+        common keywords. A total of 135 questions were collected 
+        from the students.
     \subsection{Testing and Evaluation}
-    
     \begin{table}[H]
-    \caption{Testing and Evaluation Table for OCR.}
-        \centering
-        \begin{tblr}{
-            colspec={@{}X[1] X[1] X[1] X[1]@{}}, % Makes columns flexible
-            column{1} = {c}, % Align first column to center
-            hlines,          % Adds horizontal lines
-        }
-        & \textbf{Student} & \textbf{Model} & \textbf{WER} \\
-        1 &  &  &  \\
-        ... & ... & ... & ... \\
-        70 &  &  &  \\
-        &  &   &  Average\\  % Replace X, Y, Z with actual values
-        \end{tblr}
-        \label{ocrtable}
+        \caption{Testing and Evaluation Table for Question Validity.}
+            \centering
+            \begin{tblr}{
+                colspec={@{}X[1] X[1] X[1] X[1]@{}}, % Makes columns flexible
+                column{1} = {c}, % Align first column to center
+                hlines,          % Adds horizontal lines
+            }
+            & \textbf{Student} & \textbf{Model} & \textbf{Validity}\\
+            1 &  &  &  & \\
+            ... & ... & ... & ... &\\
+            350 &     &     &     & \\ 
+                &   &     &  Total  &\\  % Replace X, Y, Z with actual values
+            \end{tblr}
+            \label{valtable}
     \end{table}
-    
-    \indent Shown in Table \ref{ocrtable} is the 
-    testing and evaluation table for the OCR. Here, 
-    the transcribed text of the students' handwritten notes 
-    are compared to the model. The WER is computed 
-    between the two texts. The average WER is then
-    computed for the evaluation of the OCR. Mathematically, 
-    the WER is 
-
+    \indent Revealed in Table \ref{valtable} is the testing 
+    and evaluation of the 350 questions generated by the system 
+    as a byproduct of its intake of the 70 handwritten notes 
+    from the data collection. Here, an author of this research 
+    in the teaching profession manually checked the questions 
+    for validity. After gaining the total number of valid
+    questions, it is divded by the total generated questions to 
+    get the question validity rate. Mathematically: 
+    \vspace{0.5cm}
     \begin{equation}
-        WER = \frac{S + D + I}{N}
+        \textrm{Validity} = \frac{\textrm{\# of valid questions}}{\textrm{\# of total questions}} \times 100\%
     \end{equation}
-
-    where $S$ is the number of substitutions, 
-    $D$ is the number of deletions,
-    $I$ is the number of insertions, and
-    $N$ is the number of words in the reference text.
-
     \begin{table}[H]
         \caption{Testing and Evaluation Table for AQG.}
             \centering
             \begin{tblr}{
-                colspec={@{}X[1] X[1] X[1] X[1] X[1]@{}}, % Makes columns flexible
+                colspec={@{}X[1] X[1] X[1] X[1] X[1] X[1] @{}}, % Makes columns flexible
                 column{1} = {c}, % Align first column to center
                 hlines,          % Adds horizontal lines
             }
-            & \textbf{Student} & \textbf{Model} & \textbf{ROUGE} & \textbf{BLEU}\\
-            1 &  &  &  & & \\
-            ... & ... & ... & ... & ...\\
-            135 &     &     &     &   \\ 
-            &   &     & Average & Average\\  % Replace X, Y, Z with actual values
+            & \textbf{Student} & \textbf{Model} & \textbf{Recall} & \textbf{Precision} & \textbf{F1}\\
+            1 &  &  &  & & & \\
+            ... & ... & ... & ... & ... & ...\\
+            135 &     &     &     &    & \\ 
+            &   &     & Average & Average & Average\\  % Replace X, Y, Z with actual values
             \end{tblr}
             \label{aqgtable}
     \end{table}
-    \indent Shown in Table \ref{aqgtable} is the
-    testing and evaluation table for the AQG. Here, the 
-    top five common keywords from the data collection 
-    are used as the basis by students for the formation of 
-    questions. The model-generated questions are then
-    compared to the student-generated questions. The 
-    ROUGE and BLEU scores are computed for the evaluation
-    of the AQG. Mathematically, the ROUGE score is
+    \indent Shown in Table \ref{aqgtable} is the testing 
+    and evaluation table for AQG evaluation. For each of 
+    the 135 questions from the students, the recall, 
+    precision, and F1 score is calculated through 
+    BERTscore.     
+    \vspace{0.75cm}
     \begin{equation}
-        ROUGE = \frac{1}{N} \sum_{i=1}^{N} \frac{2 \times (P \times R)}{(P + R)}
+        \textrm{Recall} = \frac {1} {|x|} 
+        \sum _ {\tilde{x_j}\in \tilde{x}}\max \textbf{x}_i^T \tilde{\textbf{x}}_j
     \end{equation}
-    where $P$ is the precision and $R$ is the recall, 
-    and N is the number of n-grams.  \\ 
-    \indent On the other hand, the BLEU score is
-    defined as
+    \vspace{0.75cm}
     \begin{equation}
-        BLEU = \frac{1}{N} \sum_{i=1}^{N} \frac{1}{r} \sum_{i=1}^{r} \min \left( \sum_{i=1}^{r} \text{count}_{\text{clip}}(ngram) \right)
+        \textrm{Precision} = \frac {1} {|\tilde{x}|} 
+        \sum _ {\tilde{x_i}\in \tilde{x}}\max \textbf{x}_i^T \tilde{\textbf{x}}_j
     \end{equation}
-    where $P$ is the precision, $R$ is the recall, $N$ is the number of notes, $r$ is the number of reference questions, and $\text{count}_{\text{clip}}$ is the count of the clipped n-grams.
+    \vspace{0.75cm}
+    \begin{equation}
+        \textrm{F1} = 2 \frac{\textrm{Precision}\cdot\textrm{Recall}}{
+        \textrm{Precision} + \textrm{Recall}
+        }
+    \end{equation}
+    \vspace{0.5cm}
+
+    where $x$ is the reference sentence, $\tilde{x}$ is the tokenized inference sentence, 
+    and $\textbf{x}_i^T\tilde{\textbf{x}}_j$ is the 
+    inner product between the reference sentence vectors that 
+    indicates similarity. The recall quantity
+    takes the average of the best similarities across 
+    the reference sentences. As for the precision, 
+    it also uses the same quantities but on the 
+    basis of the inference sentences $\tilde{x}$. Lastly,
+    the F1 score computes the harmonic mean across (2) and (3)
+    as a form of equalized score between precision and 
+    recall.
+\newpage
 \section{Results and Discussion}
-    \begin{figure}[H]
-        \centerline{\includegraphics[width=3in]{validity.png}}
-        \vspace{-0.4cm}
-        \caption{Pie chart for valid questions versus invalid.} 
-        \label{validity}
-    \end{figure}
-    As shown in Fig. \ref{validity}, 85.1\% of the questions generated out of 
-    the test set were valid in terms of logic, coherence, and 
-    its correlation to the answer. It means that 298 out of 350 questions 
-    were valid. 
-
-    \begin{figure}[H]
-        \centerline{\includegraphics[width=2.5in]{wer.png}}
-        \vspace{-0.4cm}
-        \caption{Histogram for WER and WOER.} 
-        \label{wer}
-    \end{figure}
-    Revealed in Fig. \ref{wer} are the WER and WOER of the system. 
-    The value of 0.40 for the WER is mainly attributed to the 
-    preprocessing of the images, since the system did not take 
-    into account the natural horizontal misalignment from the 
-    notes. Moreover, a lack of fine-tuning on the base handwritten 
-    version of TrOCR may have led to this result. However, a 
-    lower word overlap error rate (24.7\%) showed that the system 
-    is decently capable of capturing the set of keywords within 
-    the notes. This means that the text enhancement from Gemini 
-    was able to correct the errors and still produce proper questions 
-    as revealed by the 85.1\% validity rate.
-
-    \begin{figure}[H]
-        \centerline{\includegraphics[width=2.5in]{eval.png}}
-        \vspace{-0.3cm}
-        \caption{ROUGE scores and BLEU evaluation} 
-        \label{eval}
-    \end{figure}
-
-    As shown in Fig. \ref{eval}, the system was able to achieve 
-    ROUGE scores of 0.358, 0.166, and 0.115 for unigrams to trigrams 
-    respectively. This meant that the system works decently for 
-    the capture of context, but not for sentence structure. As for 
-    the BLEU score of 0.097, this means that there is a very high 
-    lexical variability. This was due to students being observed to 
-    have the tendency of copying the structure of the basis text. 
-    Compared to T5, the questions generated tended to be 
-    very diverse in terms of structure. As such, the questions 
-    generated by the model are not predictable in structure. 
+\begin{figure}[H]
+    \centerline{\includegraphics[width=3in]{validity.png}}
+    \vspace{-0.4cm}
+    \caption{Pie chart for valid questions versus invalid.} 
+    \label{validity}
+\end{figure}
+As shown in Fig. \ref{validity}, 85.1\% of the questions generated out of 
+the test set were valid in terms of logic, coherence, and 
+its correlation to the answer. It means that 298 out of the 350 
+questions were able to lead to the designated answer while 
+providing proper structure and grammar. The use of KeyBERT 
+must have allowed the T5 model to properly form the questions 
+as similar to the way that SQuAD formed its questions. The 
+remaining 14.9\% or 52 questions were considered invalid 
+due to grammar, invalid structure, and misalignment to the 
+answer it suggests. This would have been through the lack 
+of parameters that T5 has in the formulation of the questions, 
+since the researchers have noticed in the inferences that 
+the errors in the invalid questions involve the lack of 
+linking verbs, or the reveal of the answer within the question. 
+\begin{figure}[H]
+    \centerline{\includegraphics[width=3in]{bertscore.png}}
+    \vspace{-0.4cm}
+    \caption{BERTscore metrics result.}
+    \label{bertscore}
+\end{figure}
+\indent Fig. \ref{bertscore} presents the metrics produced by 
+BERTscore. The system achieved a 64.10\% precision, 59.77\%
+recall, and 61.67\% F1 score. This means that the generated 
+questions decently contains the original context from the 
+reference. During runtime, 
+it can be said that three out of the five generation 
+would have decent adherance to the basis text. During 
+analysis of the generated questions, there are 
+questions that lack the relevant keywords from the 
+reference question as well as the usual errors discussed in question 
+validity. Moreover, there were students that utilized a 
+different WH questions compared to the inference. Lastly, 
+it was noticed that the questions generated by the system 
+were considerably shorter, ranging in 9-14 words whereas 
+the reference questions may have up to 17 words.
 \section{Conclusion and Recommendations}
     \indent It was concluded that the system utilizing the T5 and TrOCR 
     pipeline was capable of performing AQG from handwritten lecture notes
     with satisfactory validity and relevance, but unpredictable in 
     lexical structure. \\
     \indent It is recommended that further research on 
-    this implementation would involve better hardware. This will lead 
+    this implementation use better hardware. This will lead 
     to the usage of higher paramter count versions of T5 and TrOCR 
     which will improve the operation of the system. Lastly, it is 
     recommended that much attention is given to the preprocessing of 
     the image captures of handwritten notes to improve the word 
-    capture accuracy. 
-
+    capture accuracy through text enhancer LLMs or by utilizing 
+    an alternative framework for OCR. 
 
 \bibliographystyle{IEEEtran}
 \bibliography{export}

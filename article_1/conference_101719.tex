@@ -23,7 +23,7 @@ and T5 Language Processing}
 \textit{School of Electrical, Electronics, and} \\
 \textit{Computer Engineering} \\
 \textit{Map\'ua University}\\
-Manila, Philippines \\
+Manila, Philippines, 1002 \\
 rjhronduen@mymail.mapua.edu.ph}
 ~\\
 \and
@@ -32,7 +32,7 @@ rjhronduen@mymail.mapua.edu.ph}
 \textit{School of Electrical, Electronics, and} \\
 \textit{Computer Engineering} \\
 \textit{Map\'ua University}\\
-Manila, Philippines \\
+Manila, Philippines, 1002 \\
 jacmanzanero@mymail.mapua.edu.ph}
 ~\\
 \and
@@ -41,7 +41,7 @@ jacmanzanero@mymail.mapua.edu.ph}
 \textit{School of Electrical, Electronics, and} \\
 \textit{Computer Engineering} \\
 \textit{Map\'ua University}\\
-Manila, Philippines \\
+Manila, Philippines, 1002 \\
 anyumang@mapua.edu.ph}
 }
 
@@ -132,7 +132,8 @@ may lead to different results.
 \section{Materials and Methods}
 \subsection{Hardware development} 
 \subsubsection{Block Diagram}
-\hfill 
+\hfill \\
+\vspace{-0.4cm}
 \begin{figure}[H]
 \centerline{\includegraphics[width=0.5\textwidth]{blockdiag.png}}
 \vspace{-0.4cm}
@@ -145,16 +146,32 @@ through the use of the web camera for the capture of handwritten notes and
 the touchscreen display for the user inputs in dictating the system 
 operation. The power supply for the Raspberry Pi 5 allows for the delivery 
 of power to the accessory components and main hardware of the system.
-    \vspace{0.1cm}
-    \subsubsection{Experimental Setup}
-    \hfill \\
-\vspace{-0.6cm}
+A Logitech C922 web camera was used that allowed for autofocus 
+and a $1920\times 1080$ pixel capture resolution. Moreover a 
+Waveshare $800\times480$ touchscreen liquid crystal display (LCD) 
+allowed for the display while also providing tactile input.\\
+\indent The services on the system were deployed using Docker as 
+individual representation state transfer (REST) application programming 
+interfaces (APIs). The front end was made using Angular where it acts 
+as the collector of the images of handwritten notes through video feeds 
+and interactive buttons. On the other hand, the back end used Flask 
+that allows for API handling while also supporting the functions needed 
+in facilitating the OCR and AQG processes. Lastly, a portable document 
+format (PDF) file was to be made from the array of question strings that 
+would be uploaded to Google Drive where a consequent download link 
+will be displayed as a quick response (QR) code to the user in the 
+front end.
+\vspace{0.4cm}
+\subsubsection{Experimental Setup}
+\newpage
+\vspace{-1cm}
 \begin{figure}[H]
 \centerline{\includegraphics[width=3in]{experimental.png}}
 \vspace{-0.4cm}
 \caption{Constructed prototype and experimental setup.} 
 \label{experimental_setup}
 \end{figure}
+\vspace{-0.3cm}
 \indent The constructed prototype is shown in Fig. \ref{experimental_setup}.
 Experimental setup is done where the system demands handwritten notes 
 in the interior of the prototype. An internet connection is required for
@@ -171,7 +188,7 @@ file for the generated questions.
 \subsubsection{Algorithm Pipeline}
 \hfill
 \begin{figure}[H]
-\centerline{\includegraphics[width=3in]{pipeline.png}}
+\centerline{\includegraphics[width=3.5in]{pipeline.png}}
 \vspace{-0.4cm}
 \caption{Algorithm pipeline.} 
 \label{pipeline}
@@ -189,6 +206,56 @@ relevant keywords and phrases as a basis for the question generation
 which is sent to the T5 model for generation of questions. 
 These questions are then stored in an array for portable document 
 file (PDF).
+\hfill
+\begin{figure}[H]
+\centerline{\includegraphics[width=3.5in]{ocr_process.png}}
+\vspace{-0.4cm}
+\caption{Text line detection and extraction process.} 
+\label{ocr_process}
+\end{figure}
+
+\newpage
+\indent Revealed in Fig. \ref{ocr_process} is the step-by-step 
+procedure for the process of retrieving text lines from 
+a given document. It starts with the receiving of two half 
+scans of a given document. Image concatenation involves 
+the combination of the two to recreate the full document. 
+Fast non-local (NL) means denoising and image thresholding 
+converts the document scan to a more readable document while 
+exposing the shape of the handwritten text. Image binarization 
+and horizontal dilation allows for the reveal of text 
+lines across the document. Finally, individual contours 
+are detected where it is used as a basis for the specific 
+cropping from the thresholded image which allow for a collection of 
+images that contain the individual text lines on the document.
+\hfill
+\begin{figure}[H]
+\centerline{\includegraphics[width=3.5in]{trocr_process.png}}
+\vspace{-0.4cm}
+\caption{TrOCR processing.} 
+\label{trocr_process}
+\end{figure}
+\indent In Fig. \ref{trocr_process}, it presents the detailed operation 
+of TrOCR in the system. Coming from the extracted text line images 
+from the process in \ref{ocr_process}, batch encoding, inferencing, and 
+decoding was done on the array of text lines using the encoder-decoder 
+framework provided by TrOCR. After the extraction procedure, it is 
+prompted to Gemini where error correction is attempted from the 
+OCR extraction.
+\hfill
+\begin{figure}[H]
+\centerline{\includegraphics[width=3.5in]{aqg_process.png}}
+\vspace{-0.4cm}
+\caption{T5 language processing.} 
+\label{aqg_process}
+\end{figure}
+\indent Fig. \ref{aqg_process} shows the process that uses T5
+for AQG. Coming from enhanced text in Fig. \ref{trocr_process}, 
+the spaCy library and the RAKE algorithm was used to find the 
+relevant keywords and phrases from the text as basis for the questions. 
+Consequently, answer-context pairs are used as prompts that are inputted 
+to the T5 model that generates the questions in an array. 
+\vspace{0.3cm}
 \subsubsection{Model Training}
 \hfill \\ 
 \indent The T5 base model was fine-tuned to the SQuADv1.1 
@@ -198,6 +265,9 @@ trainer. The SQuADv1.1 dataset was loaded using the
 datasets library where the chosen input features 
 were the context and the question. The output feature 
 was the answer for the given pair of inputs.
+
+\newpage
+
 \subsection{Data Collection}
 \vspace{-0.2cm}
 \begin{figure}[H]
@@ -303,13 +373,14 @@ and bridge the gaps in the text digest to form valid questions.
 \indent In Fig. \ref{validity}, it revealed that the generated questions 
 by the system are valid 68\% of the time where out of 350 questions, 
 238 were valid in terms of coherency, grammar, and it's correlation 
-to the subject matter. The remaining invalidity was attributed to 
+to the subject matter. The 350 questions were
+collected as a result of the input of the test set to the 
+system during evaluation. The remaining invalidity was attributed to 
 possibly two aspects. The first is that the T5 model may have too little 
 parameters to generate questions that are more coherent and 
 grammatically correct. The second is that some keywords may have not been 
 corrected by the Gemini 1.5 Flash model which may have led to the
 propagation of errors in the generated questions.
-\newpage
 \begin{figure}[H]
     \centerline{\includegraphics[width=2.5in]{eval.png}}
     \vspace{-0.3cm}
@@ -346,8 +417,11 @@ captures to improve the text extraction. Also,
 the use of larger versions of TrOCR and T5 is recommended 
 alongside the use of a more powerful hardware for the system
 through processing power and an improved camera for 
-higher image resolutions. Lastly, an alternative method 
-for text enhancement is recommended.
+higher image resolutions. It is also recommended that 
+alternative evaluation methods are utilized for this AQG 
+implementation, perhaps in the form of similarity or through 
+semantic analyses.
+
 
 
 \bibliographystyle{IEEEtran}

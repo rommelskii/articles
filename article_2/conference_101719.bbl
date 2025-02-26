@@ -20,58 +20,64 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{Arbaaeen2020}
-A.~Arbaaeen and A.~Shah, ``Natural language processing based question answering techniques: A survey,'' in \emph{7th IEEE International Conference on Engineering Technologies and Applied Sciences, ICETAS 2020}.\hskip 1em plus 0.5em minus 0.4em\relax Institute of Electrical and Electronics Engineers Inc., 12 2020.
-
-\bibitem{Fernandez2023}
-V.~I.~D. Rosario, B.~D.~P. Fernandez, and D.~A. Padilla, ``Email spam classification using distilbert,'' in \emph{2023 IEEE 15th International Conference on Humanoid, Nanotechnology, Information Technology, Communication and Control, Environment, and Management (HNICEM)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 11 2023, pp. 1--6.
-
 \bibitem{Gaur2023}
 H.~Gaur, D.~K. Tayal, and A.~Jain, ``Viqg: Web tool for automatic question generation from code for viva preparation,'' in \emph{Proceedings of 2023 26th Conference of the Oriental COCOSDA International Committee for the Co-Ordination and Standardization of Speech Databases and Assessment Techniques, O-COCOSDA 2023}.\hskip 1em plus 0.5em minus 0.4em\relax Institute of Electrical and Electronics Engineers Inc., 2023.
-
-\bibitem{Ou2022}
-Y.~Y. Ou, S.~W. Chuang, W.~C. Wang, and J.~F. Wang, ``Automatic multimedia-based question-answer pairs generation in computer assisted healthy education system,'' in \emph{2022 10th International Conference on Orange Technology, ICOT 2022}.\hskip 1em plus 0.5em minus 0.4em\relax Institute of Electrical and Electronics Engineers Inc., 2022.
-
-\bibitem{Moron2021}
-M.~Moron, J.~Scocozza, L.~Chiruzzo, and A.~Rosa, ``A tool for automatic question generation for teaching english to beginner students,'' in \emph{Proceedings - International Conference of the Chilean Computer Science Society, SCCC}, vol. 2021-November.\hskip 1em plus 0.5em minus 0.4em\relax IEEE Computer Society, 2021.
-
-\bibitem{Mesina2020}
-D.~A. Padilla, A.~J.~M. Mesina, and E.~J.~A. Perez, ``English treebank of mapúa university smart interactive voice response system,'' in \emph{2020 IEEE 12th International Conference on Humanoid, Nanotechnology, Information Technology, Communication and Control, Environment, and Management (HNICEM)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 12 2020, pp. 1--6.
 
 \bibitem{Tsai2021}
 D.~C. Tsai, A.~Y. Huang, O.~H. Lu, and S.~J. Yang, ``Automatic question generation for repeated testing to improve student learning outcome,'' in \emph{Proceedings - IEEE 21st International Conference on Advanced Learning Technologies, ICALT 2021}.\hskip 1em plus 0.5em minus 0.4em\relax Institute of Electrical and Electronics Engineers Inc., 7 2021, pp. 339--341.
 
-\bibitem{Gallenero2023}
-J.~A. Gallenero and J.~Villaverde, ``Identification of durian leaf disease using convolutional neural network,'' in \emph{2023 15th International Conference on Computer and Automation Engineering (ICCAE)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 3 2023, pp. 172--177.
-
-\bibitem{Calimag2023}
-A.~D.~R. Calimag, D.~A. Padilla, and C.~O. Manlises, ``Checkout system with object detection using nvidia jetson nano and raspberry pi,'' in \emph{2023 IEEE 5th Eurasia Conference on IOT, Communication and Engineering (ECICE)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 10 2023, pp. 168--171.
-
-\bibitem{Sutayco2024}
-M.~J.~Y. Sutayco and M.~V.~C. Caya, ``A comparative study of mobilenetv2 and vgg-16 convolutional neural network architectures for identification of medicinal mushrooms.''\hskip 1em plus 0.5em minus 0.4em\relax Institute of Electrical and Electronics Engineers (IEEE), 7 2024, pp. 1--6.
-
-\bibitem{Padilla2020}
-D.~A. Padilla, N.~K.~U. Vitug, and J.~B.~S. Marquez, ``Deep learning approach in gregg shorthand word to english-word conversion,'' in \emph{2020 IEEE 5th International Conference on Image, Vision and Computing (ICIVC)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 7 2020, pp. 204--210.
-
-\bibitem{Ligsay2022}
-A.~M.~P. Ligsay, J.~B. Rivera, and J.~F. Villaverde, ``Optical character recognition of baybayin writing system using yolov3 algorithm,'' in \emph{2022 IEEE International Conference on Artificial Intelligence in Engineering and Technology (IICAIET)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 9 2022, pp. 1--5.
+\bibitem{Ou2022}
+Y.~Y. Ou, S.~W. Chuang, W.~C. Wang, and J.~F. Wang, ``Automatic multimedia-based question-answer pairs generation in computer assisted healthy education system,'' in \emph{2022 10th International Conference on Orange Technology, ICOT 2022}.\hskip 1em plus 0.5em minus 0.4em\relax Institute of Electrical and Electronics Engineers Inc., 2022.
 
 \bibitem{Manlises2024}
 C.~O. Manlises, D.~A. Padilla, J.~B. Santos, and P.~A. Adviento, ``Expiration identification of canned goods using convolutional neural network,'' in \emph{2024 7th International Conference on Information and Computer Technologies (ICICT)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 3 2024, pp. 173--177.
 
-\bibitem{Villaverde2023}
-J.~F. Villaverde, M.~D. Ferrer, J.~A.~T. Macabeo, and J.~T. Masilungan-Manuel, ``Classification of cotton fabric, pineapple fabric and cotton pineapple blend fabric with vgg16 using keras,'' in \emph{2023 IEEE 15th International Conference on Humanoid, Nanotechnology, Information Technology, Communication and Control, Environment, and Management (HNICEM)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 11 2023, pp. 1--6.
+\bibitem{Calimag2023}
+A.~D.~R. Calimag, D.~A. Padilla, and C.~O. Manlises, ``Checkout system with object detection using nvidia jetson nano and raspberry pi,'' in \emph{2023 IEEE 5th Eurasia Conference on IOT, Communication and Engineering (ECICE)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 10 2023, pp. 168--171.
+
+\bibitem{Sutayco2023}
+M.~J.~Y. Sutayco and M.~V.~C. Caya, ``A comparative study of mobilenetv2 and vgg-16 convolutional neural network architectures for identification of medicinal mushrooms,'' in \emph{2023 IEEE 15th International Conference on Humanoid, Nanotechnology, Information Technology, Communication and Control, Environment, and Management, HNICEM 2023}.\hskip 1em plus 0.5em minus 0.4em\relax Institute of Electrical and Electronics Engineers Inc., 2023.
+
+\bibitem{Estrella2024}
+A.~P.~S. Estrella, F.~M.~O. Lucban, and M.~V.~C. Caya, ``Image recognition of different hamster breeds using convolutional neural networks,'' in \emph{6th IEEE International Conference on Artificial Intelligence in Engineering and Technology, IICAIET 2024}.\hskip 1em plus 0.5em minus 0.4em\relax Institute of Electrical and Electronics Engineers Inc., 2024, pp. 597--602.
+
+\bibitem{Wata2023}
+M.~G. Wata and J.~F. Villaverde, ``Bubble-sheet assessment checker with test grader using computer vision through raspberry pi,'' in \emph{2023 IEEE 6th International Conference on Computer and Communication Engineering Technology, CCET 2023}.\hskip 1em plus 0.5em minus 0.4em\relax Institute of Electrical and Electronics Engineers Inc., 2023, pp. 137--142.
+
+\bibitem{Bacalla2023}
+G.~L.~B. Bacalla, E.~N.~C. Corate, and A.~N. Yumang, ``Jackfruit maturity classification using uniform local binary pattern and support vector machine,'' in \emph{2023 IEEE 5th Eurasia Conference on IOT, Communication and Engineering, ECICE 2023}.\hskip 1em plus 0.5em minus 0.4em\relax Institute of Electrical and Electronics Engineers Inc., 2023, pp. 605--610.
+
+\bibitem{Baguisi2024}
+J.~M. Baguisi, B.~R.~S. Buenaventura, and A.~N. Yumang, ``The effect of data augmentation and padding of the image dataset on detection of black sigatoka disease on banana leaves using shufflenet v2 cnn architecture,'' in \emph{Proceedings - 2024 7th International Conference on Information and Computer Technologies, ICICT 2024}.\hskip 1em plus 0.5em minus 0.4em\relax Institute of Electrical and Electronics Engineers Inc., 2024, pp. 277--282.
+
+\bibitem{Ligsay2022}
+A.~M.~P. Ligsay, J.~B. Rivera, and J.~F. Villaverde, ``Optical character recognition of baybayin writing system using yolov3 algorithm,'' in \emph{4th IEEE International Conference on Artificial Intelligence in Engineering and Technology, IICAIET 2022}.\hskip 1em plus 0.5em minus 0.4em\relax Institute of Electrical and Electronics Engineers Inc., 2022.
 
 \bibitem{Li2021}
 M.~Li, T.~Lv, J.~Chen, L.~Cui, Y.~Lu, D.~Florencio, C.~Zhang, Z.~Li, and F.~Wei, ``Trocr: Transformer-based optical character recognition with pre-trained models,'' 9 2021.
 
-\bibitem{Zhang2023}
-H.~Zhang, E.~Whittaker, and I.~Kitagishi, ``Extending trocr for text localization-free ocr of full-page scanned receipt images,'' in \emph{2023 IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 10 2023, pp. 1471--1477.
+\bibitem{Fernandez2023}
+V.~I.~D. Rosario, B.~D.~P. Fernandez, and D.~A. Padilla, ``Email spam classification using distilbert,'' in \emph{2023 IEEE 15th International Conference on Humanoid, Nanotechnology, Information Technology, Communication and Control, Environment, and Management (HNICEM)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 11 2023, pp. 1--6.
 
-\bibitem{Mortadi2023}
-A.~Mortadi, A.~Mohamed, A.~Talima, A.~Alkhattip, A.~Ibrahim, A.~Osman, and Y.~Hifny, ``Alnasikh: An arabic ocr system based on transformers,'' in \emph{2023 International Mobile, Intelligent, and Ubiquitous Computing Conference (MIUCC)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 9 2023, pp. 74--81.
+\bibitem{Mingua2021}
+J.~Mingua, D.~Padilla, and E.~J. Celino, ``Classification of fire related tweets on twitter using bidirectional encoder representations from transformers (bert),'' in \emph{2021 IEEE 13th International Conference on Humanoid, Nanotechnology, Information Technology, Communication and Control, Environment, and Management (HNICEM)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 11 2021, pp. 1--6.
 
-\bibitem{Wang2023}
-M.~Wang, P.~Xie, Y.~Du, and X.~Hu, ``T5-based model for abstractive summarization: A semi-supervised learning approach with consistency loss functions,'' \emph{Applied Sciences}, vol.~13, p. 7111, 6 2023.
+\bibitem{Liu2023}
+Y.~Liu, H.~Huang, J.~Gao, and S.~Gai, ``A study of chinese text classification based on a new type of bert pre-training,'' in \emph{Proceedings - 2023 5th International Conference on Natural Language Processing, ICNLP 2023}.\hskip 1em plus 0.5em minus 0.4em\relax Institute of Electrical and Electronics Engineers Inc., 2023, pp. 303--307.
+
+\bibitem{Patra2024}
+\BIBentryALTinterwordspacing
+C.~Patra, D.~Giri, T.~Maitra, and B.~Kundu, ``A comparative study on detecting phishing urls leveraging pre-trained bert variants,'' in \emph{2024 6th International Conference on Computational Intelligence and Networks (CINE)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 12 2024, pp. 1--6. [Online]. Available: \url{https://ieeexplore.ieee.org/document/10881521/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Talupuri2024}
+\BIBentryALTinterwordspacing
+P.~K. Talupuri, M.~G. Kumar, K.~Lavanya, G.~Chetan, and N.~P. Challa, ``Smart mcq generation using keybert and bert based models,'' in \emph{2024 3rd Edition of IEEE Delhi Section Flagship Conference (DELCON)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 11 2024, pp. 1--5. [Online]. Available: \url{https://ieeexplore.ieee.org/document/10866615/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Zhang2019}
+\BIBentryALTinterwordspacing
+T.~Zhang, V.~Kishore, F.~Wu, K.~Q. Weinberger, and Y.~Artzi, ``Bertscore: Evaluating text generation with bert,'' 4 2019. [Online]. Available: \url{http://arxiv.org/abs/1904.09675}
+\BIBentrySTDinterwordspacing
 
 \end{thebibliography}
